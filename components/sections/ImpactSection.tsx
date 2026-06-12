@@ -79,25 +79,25 @@ export default function ImpactSection() {
   );
 
   return (
-    <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden">
+    <section ref={sectionRef} className="relative py-14 sm:py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-transparent" />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="impact-heading text-center mb-14">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
+        <div className="impact-heading text-center mb-10 sm:mb-14">
           <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
             Impact
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em]">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em]">
             <span className="text-ink">From days</span>{" "}
             <span className="gradient-text">to minutes.</span>
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-6">
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-4 sm:gap-6">
           {/* Before/after vertical bars */}
           <TiltCard maxTilt={6} className="impact-card">
-            <div className="gradient-border h-full p-8 md:p-10">
-              <div className="flex items-center justify-between mb-10">
+            <div className="gradient-border h-full p-5 sm:p-8 md:p-10">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-6 sm:mb-10">
                 <span className="text-[15px] font-semibold text-ink">
                   Cycle time, before vs. with NexPay
                 </span>
@@ -111,16 +111,16 @@ export default function ImpactSection() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 md:gap-10">
+              <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-10">
                 {COMPARISONS.map((c) => (
                   <div key={c.label} className="flex flex-col items-center">
-                    <div className="flex items-end gap-3 h-[180px] md:h-[220px]">
+                    <div className="flex items-end gap-2 sm:gap-3 h-[140px] sm:h-[180px] md:h-[220px]">
                       <div className="flex flex-col items-center justify-end h-full">
                         <span className="text-[11px] text-muted mb-2 whitespace-nowrap">
                           {c.before}
                         </span>
                         <div
-                          className="impact-bar w-7 md:w-9 rounded-t-md bg-ink/[0.14]"
+                          className="impact-bar w-5 sm:w-7 md:w-9 rounded-t-md bg-ink/[0.14]"
                           style={{ height: `${c.beforePct}%` }}
                         />
                       </div>
@@ -129,7 +129,7 @@ export default function ImpactSection() {
                           {c.after}
                         </span>
                         <div
-                          className="impact-bar w-7 md:w-9 rounded-t-md bg-gradient-to-t from-[#0f766e] to-primary"
+                          className="impact-bar w-5 sm:w-7 md:w-9 rounded-t-md bg-gradient-to-t from-[#0f766e] to-primary"
                           style={{ height: `${c.afterPct}%` }}
                         />
                       </div>
@@ -145,9 +145,9 @@ export default function ImpactSection() {
 
           {/* Donut gauge */}
           <TiltCard maxTilt={6} className="impact-card">
-            <div className="gradient-border h-full p-8 md:p-10 flex flex-col items-center justify-center gap-6">
+            <div className="gradient-border h-full p-5 sm:p-8 md:p-10 flex flex-col items-center justify-center gap-4 sm:gap-6">
               <div className="relative">
-                <svg width="220" height="220" viewBox="0 0 220 220" fill="none">
+                <svg width="180" height="180" viewBox="0 0 220 220" fill="none" className="sm:w-[220px] sm:h-[220px]">
                   <circle
                     cx="110"
                     cy="110"

@@ -33,12 +33,12 @@ export default function LiveTicker() {
     <div className="flex flex-col items-center gap-2">
       <span
         ref={numRef}
-        className="text-2xl md:text-3xl font-bold gradient-text-primary tabular-nums tracking-tight"
+        className="text-xl sm:text-2xl md:text-3xl font-bold gradient-text-primary tabular-nums tracking-tight"
       >
         $4,213,407,551
       </span>
-      <div className="w-56 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
-      <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-muted">
+      <div className="w-40 sm:w-56 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
+      <div className="flex items-center gap-2 text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-muted">
         <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse-glow" />
         <span>Live · Processed Today</span>
       </div>

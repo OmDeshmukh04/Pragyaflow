@@ -60,18 +60,18 @@ export default function KpiBand() {
   );
 
   return (
-    <section ref={sectionRef} className="relative py-14 md:py-20">
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+    <section ref={sectionRef} className="relative py-10 sm:py-14 md:py-20">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
           {stats.map((stat, i) => (
             <TiltCard key={stat.label} className="kpi-card">
-              <div className="gradient-border h-full p-6 md:p-8 flex flex-col gap-4">
+              <div className="gradient-border h-full p-4 sm:p-6 md:p-8 flex flex-col gap-3 sm:gap-4">
                 <div className="flex items-start justify-between gap-3">
                   <span
                     ref={(el) => {
                       valueRefs.current[i] = el;
                     }}
-                    className="text-3xl md:text-4xl font-bold gradient-text-primary tabular-nums"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text-primary tabular-nums"
                   >
                     {stat.value}
                   </span>

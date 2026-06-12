@@ -204,7 +204,7 @@ export default function DashboardMockup({ activeIndex }: { activeIndex: number }
         </div>
 
         {/* Panels crossfade */}
-        <div className="relative min-h-[380px]">
+        <div className="relative min-h-[320px] sm:min-h-[380px]">
           {panels.map((Panel, i) => (
             <div
               key={i}

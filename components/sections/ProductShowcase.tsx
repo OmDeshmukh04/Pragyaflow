@@ -44,7 +44,7 @@ export default function ProductShowcase() {
           style={{ backgroundColor: `${productColors[activeIndex]}08` }}
         />
 
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
           {/* Left: Text Content */}
           <div className="flex flex-col gap-8">
             <span className="text-sm font-medium text-accent uppercase tracking-[0.2em]">
@@ -67,7 +67,7 @@ export default function ProductShowcase() {
               ))}
             </div>
 
-            <div className="relative min-h-[300px]">
+            <div className="relative min-h-[250px] sm:min-h-[300px]">
               {products.map((product, i) => (
                 <div
                   key={product.title}
@@ -78,16 +78,16 @@ export default function ProductShowcase() {
                     pointerEvents: activeIndex === i ? "auto" : "none",
                   }}
                 >
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-5">
+                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-5">
                     <span style={{ color: productColors[i] }}>
                       {product.title}
                     </span>
                   </h3>
-                  <p className="text-muted text-lg leading-relaxed mb-8 max-w-lg">
+                  <p className="text-muted text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg">
                     {product.description}
                   </p>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     {product.features.map((feature, fi) => (
                       <div
                         key={fi}
@@ -119,12 +119,12 @@ export default function ProductShowcase() {
           </div>
 
           {/* Right: Live dashboard mockup */}
-          <div className="relative flex items-center justify-center min-h-[400px] lg:min-h-[550px]">
+          <div className="relative flex items-center justify-center min-h-[300px] sm:min-h-[400px] lg:min-h-[550px]">
             <DashboardMockup activeIndex={activeIndex} />
           </div>
         </div>
 
-        <div className="absolute bottom-8 right-8 lg:right-16 text-sm text-muted font-mono">
+        <div className="absolute bottom-6 sm:bottom-8 right-4 sm:right-8 lg:right-16 text-sm text-muted font-mono">
           <span style={{ color: productColors[activeIndex] }}>
             0{activeIndex + 1}
           </span>

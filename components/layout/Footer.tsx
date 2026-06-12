@@ -13,8 +13,8 @@ export default function Footer() {
     <footer className="relative border-t border-ink/[0.06]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
 
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-16 md:py-20">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-12 sm:py-16 md:py-20">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-8 sm:gap-10 md:gap-8">
           {/* Brand Column */}
           <div className="col-span-2">
             <div className="flex items-center gap-2.5 mb-5">
@@ -70,11 +70,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-ink/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-ink/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <p className="text-xs text-muted">
             © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
             <a href="#" className="text-xs text-muted hover:text-ink transition-colors">Privacy Policy</a>
             <a href="#" className="text-xs text-muted hover:text-ink transition-colors">Terms of Service</a>
             <a href="#" className="text-xs text-muted hover:text-ink transition-colors">Cookie Policy</a>

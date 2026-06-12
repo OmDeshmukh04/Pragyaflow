@@ -97,23 +97,23 @@ export default function SolutionsSection() {
       <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/[0.12] blur-[120px]" />
       <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full bg-deep/[0.05] blur-[120px]" />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         {/* Heading + live metrics arc */}
-        <div className="solution-heading mb-20 grid lg:grid-cols-[1fr_auto] gap-12 items-center">
+        <div className="solution-heading mb-12 sm:mb-16 lg:mb-20 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left">
             <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
               Solutions
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-6">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-6">
               <span className="gradient-text">Automate every money workflow.</span>
               <br />
               <span className="text-ink">Eliminate manual ops.</span>
             </h2>
-            <p className="text-lg text-muted max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg text-muted max-w-2xl mx-auto lg:mx-0">
               A complete automation suite for fintechs, banks, and platforms that
               move money. Built for regulated complexity, optimized for speed.
             </p>
-            <div className="mt-8 flex flex-wrap gap-2.5 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
+            <div className="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-2.5 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
               {[
                 "Smart retries",
                 "AML monitoring",
@@ -124,7 +124,7 @@ export default function SolutionsSection() {
               ].map((tag) => (
                 <span
                   key={tag}
-                  className="px-4 py-2 rounded-full glass border border-ink/10 text-[13px] text-deep"
+                  className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass border border-ink/10 text-[12px] sm:text-[13px] text-deep"
                 >
                   {tag}
                 </span>
@@ -137,11 +137,11 @@ export default function SolutionsSection() {
         </div>
 
         {/* Cards Grid */}
-        <div className="solutions-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="solutions-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {solutions.map((solution) => (
             <div
               key={solution.title}
-              className="solution-card glass-card p-8 group cursor-pointer"
+              className="solution-card glass-card p-6 sm:p-8 group cursor-pointer"
             >
               <div
                 className="h-[2px] w-16 rounded-full mb-6 group-hover:w-24 transition-all duration-500"
@@ -158,7 +158,7 @@ export default function SolutionsSection() {
                 <span className="text-ink">{icons[solution.icon]}</span>
               </div>
 
-              <h3 className="text-xl font-semibold text-ink mb-3 tracking-[-0.01em]">
+              <h3 className="text-lg sm:text-xl font-semibold text-ink mb-2 sm:mb-3 tracking-[-0.01em]">
                 {solution.title}
               </h3>
               <p className="text-muted leading-relaxed text-[15px]">

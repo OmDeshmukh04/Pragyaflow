@@ -72,36 +72,36 @@ export default function ServicesSection() {
     <section ref={sectionRef} id="services" className="section-padding relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent" />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         {/* Heading */}
-        <div className="services-heading text-center mb-20">
+        <div className="services-heading text-center mb-12 sm:mb-16 lg:mb-20">
           <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
             Services
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-6">
             <span className="text-ink">Enterprise-grade</span>
             <br />
             <span className="gradient-text-secondary">support & expertise</span>
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted max-w-2xl mx-auto">
             Beyond software — dedicated fintech automation experts who keep
             your money operations running flawlessly at any scale.
           </p>
         </div>
 
         {/* Services Grid — 2 columns */}
-        <div className="services-list grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="services-list grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           {services.map((service, i) => {
             const color = serviceColors[i];
             return (
               <div
                 key={service.title}
-                className="service-item glass-card p-8 md:p-10 group cursor-pointer"
+                className="service-item glass-card p-6 sm:p-8 md:p-10 group cursor-pointer"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                   {/* Icon */}
                   <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110"
+                    className="w-14 sm:w-16 h-14 sm:h-16 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-500 group-hover:scale-110"
                     style={{
                       background: `linear-gradient(135deg, ${color}15, ${color}08)`,
                       border: `1px solid ${color}20`,

@@ -125,17 +125,17 @@ export default function HeroSection() {
       </div>
 
       {/* Content — left copy · card center-right */}
-      <div className="hero-content relative z-10 w-full max-w-[1480px] mx-auto px-6 md:px-10 lg:px-16 pt-28 md:pt-32 pb-40 grid lg:grid-cols-[minmax(0,460px)_1fr] items-center gap-10">
+      <div className="hero-content relative z-10 w-full max-w-[1480px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 pt-24 sm:pt-28 md:pt-32 pb-32 sm:pb-40 grid lg:grid-cols-[minmax(0,460px)_1fr] items-center gap-8 lg:gap-10">
         {/* Left: copy */}
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div className="hero-badge inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass border border-ink/10 mb-8">
+          <div className="hero-badge inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full glass border border-ink/10 mb-6 sm:mb-8">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow" />
-            <span className="text-sm text-ink font-medium">
-              Introducing {siteConfig.name} — AI Automation for Finance
+            <span className="text-xs sm:text-sm text-ink font-medium">
+              Introducing {siteConfig.name} — AI Automation
             </span>
           </div>
 
-          <h1 className="hero-heading text-5xl sm:text-6xl xl:text-7xl font-bold leading-[1.05] tracking-[-0.04em] mb-8">
+          <h1 className="hero-heading text-3xl xs:text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-[-0.03em] sm:tracking-[-0.04em] mb-6 sm:mb-8">
             <span className="gradient-text">Run Finance</span>
             <br />
             <span className="gradient-text">on Autopilot.</span>
@@ -143,23 +143,23 @@ export default function HeroSection() {
             <span className="text-ink">Scale Without Limits.</span>
           </h1>
 
-          <div className="flex flex-col gap-3 mb-10">
+          <div className="flex flex-col gap-2.5 sm:gap-3 mb-8 sm:mb-10">
             {featureLines.map((line) => (
               <div
                 key={line}
-                className="hero-line flex items-center gap-3 justify-center lg:justify-start"
+                className="hero-line flex items-center gap-2.5 sm:gap-3 justify-center lg:justify-start"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                <span className="text-base md:text-lg text-deep">{line}</span>
+                <span className="text-sm sm:text-base md:text-lg text-deep">{line}</span>
               </div>
             ))}
           </div>
 
-          <div className="hero-buttons flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            <button className="btn-primary !py-4 !px-9 !text-base !rounded-full">
+          <div className="hero-buttons flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
+            <button className="btn-primary !py-3.5 sm:!py-4 !px-7 sm:!px-9 !text-sm sm:!text-base !rounded-full w-full sm:w-auto">
               <span>Start Free Trial</span>
               <svg
-                className="w-5 h-5 relative z-10"
+                className="w-4 h-4 sm:w-5 sm:h-5 relative z-10"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -167,9 +167,9 @@ export default function HeroSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </button>
-            <button className="btn-secondary !py-4 !px-9 !text-base !rounded-full">
+            <button className="btn-secondary !py-3.5 sm:!py-4 !px-7 sm:!px-9 !text-sm sm:!text-base !rounded-full w-full sm:w-auto">
               <svg
-                className="w-5 h-5"
+                className="w-4 h-4 sm:w-5 sm:h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -182,11 +182,11 @@ export default function HeroSection() {
           </div>
 
           {/* Compact stats for mobile/tablet where the metric arc is hidden */}
-          <div className="flex lg:hidden items-center gap-8 mt-10">
+          <div className="flex lg:hidden items-center justify-center gap-6 sm:gap-8 mt-8 sm:mt-10">
             {mobileStats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center">
-                <span className="text-xl font-bold text-ink tabular-nums">{stat.value}</span>
-                <span className="text-[10px] text-muted uppercase tracking-wider mt-1">
+                <span className="text-lg sm:text-xl font-bold text-ink tabular-nums">{stat.value}</span>
+                <span className="text-[9px] sm:text-[10px] text-muted uppercase tracking-wider mt-1">
                   {stat.label}
                 </span>
               </div>
@@ -199,12 +199,12 @@ export default function HeroSection() {
       </div>
 
       {/* Live ticker under the card */}
-      <div className="hero-ticker hero-content absolute bottom-20 left-1/2 -translate-x-1/2 z-10">
+      <div className="hero-ticker hero-content absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-10 w-full px-4 sm:px-0 sm:w-auto">
         <LiveTicker />
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 z-10">
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 z-10 hidden sm:flex">
         <span className="text-xs text-muted uppercase tracking-widest">Scroll</span>
         <div className="w-5 h-8 rounded-full border border-ink/25 flex items-start justify-center p-1.5">
           <div className="w-1 h-2 rounded-full bg-ink/40 animate-[float_2s_ease-in-out_infinite]" />

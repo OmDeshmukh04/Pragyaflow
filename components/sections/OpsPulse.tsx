@@ -99,23 +99,23 @@ export default function OpsPulse() {
   );
 
   return (
-    <section ref={sectionRef} className="relative py-20 md:py-28 overflow-hidden">
+    <section ref={sectionRef} className="relative py-14 sm:py-20 md:py-28 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent" />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* Left: vertical KPI stack */}
         <div>
           <div className="pulse-heading mb-10">
             <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
               Live Operations
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em]">
               <span className="text-ink">The pulse of</span>{" "}
               <span className="gradient-text">your money ops</span>
             </h2>
           </div>
 
-          <div className="flex flex-col gap-7">
+          <div className="flex flex-col gap-5 sm:gap-7">
             {PULSE_KPIS.map((kpi, i) => (
               <div key={kpi.label}>
                 <div className="flex items-baseline justify-between mb-2.5">
@@ -145,7 +145,7 @@ export default function OpsPulse() {
 
         {/* Right: automation trend chart */}
         <TiltCard maxTilt={7}>
-          <div className="glass-card p-6 md:p-8">
+          <div className="glass-card p-4 sm:p-6 md:p-8">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <div className="text-[15px] font-semibold text-ink">

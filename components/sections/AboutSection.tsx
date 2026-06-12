@@ -94,13 +94,13 @@ export default function AboutSection() {
       <div className="absolute inset-0 animated-gradient-bg opacity-50" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-ink/15 to-transparent" />
 
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
         {/* Heading */}
-        <div className="about-heading text-center mb-16">
+        <div className="about-heading text-center mb-10 sm:mb-16">
           <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
             About
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-6">
             <span className="text-ink">Powering the future</span>
             <br />
             <span className="gradient-text">of financial operations</span>
@@ -108,15 +108,15 @@ export default function AboutSection() {
         </div>
 
         {/* Stats Grid */}
-        <div className="stats-card gradient-border p-10 md:p-14 mb-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div className="stats-card gradient-border p-6 sm:p-10 md:p-14 mb-10 sm:mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
             {stats.map((stat, i) => (
               <div key={i} className="text-center">
                 <span
                   ref={(el) => {
                     counterRefs.current[i] = el;
                   }}
-                  className="block text-4xl md:text-5xl lg:text-6xl font-bold gradient-text-primary mb-3"
+                  className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text-primary mb-2 sm:mb-3"
                 >
                   {stat.value}
                 </span>
@@ -129,12 +129,12 @@ export default function AboutSection() {
         </div>
 
         {/* Mission + Globe */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-[380px] md:h-[460px] order-last lg:order-first">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-10 sm:mb-16">
+          <div className="relative h-[280px] sm:h-[380px] md:h-[460px] order-last lg:order-first">
             <PaymentsGlobe />
           </div>
           <div>
-            <p className="text-xl md:text-2xl text-muted leading-relaxed mb-6">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted leading-relaxed mb-4 sm:mb-6">
               We&apos;re building the AI infrastructure that runs money
               operations for fintechs, banks, and global platforms. Our mission
               is to make every financial workflow{" "}
@@ -143,7 +143,7 @@ export default function AboutSection() {
               </span>{" "}
               — so your team scales revenue, not headcount.
             </p>
-            <p className="text-lg text-muted leading-relaxed">
+            <p className="text-base sm:text-lg text-muted leading-relaxed">
               From payment retries in São Paulo to KYC checks in Singapore,
               NexPay automations move work across the globe around the clock —
               every pulse on this map is a workflow completing itself.
@@ -156,11 +156,11 @@ export default function AboutSection() {
           <p className="text-xs text-muted uppercase tracking-[0.2em] mb-8">
             Trusted by teams that move money
           </p>
-          <div className="partners-row flex flex-wrap items-center justify-center gap-10 md:gap-16">
+          <div className="partners-row flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16">
             {partners.map((name) => (
               <span
                 key={name}
-                className="partner-name text-xl md:text-2xl font-bold text-ink/15 hover:text-ink/35 transition-colors duration-300 cursor-default tracking-wide"
+                className="partner-name text-lg sm:text-xl md:text-2xl font-bold text-ink/15 hover:text-ink/35 transition-colors duration-300 cursor-default tracking-wide"
               >
                 {name}
               </span>
