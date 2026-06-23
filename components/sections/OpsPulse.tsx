@@ -5,19 +5,18 @@ import { gsap, useGSAP } from "@/lib/gsapConfig";
 import TiltCard from "@/components/ui/TiltCard";
 
 const PULSE_KPIS = [
-  { label: "Auto-resolved exceptions", value: 94.0, decimals: 1 },
-  { label: "Straight-through processing", value: 98.2, decimals: 1 },
-  { label: "First-pass match rate", value: 96.8, decimals: 1 },
-  { label: "Fraud catch rate", value: 99.1, decimals: 1 },
+  { label: "Business process mapped", value: 100, decimals: 0 },
+  { label: "Prototype coverage", value: 82, decimals: 0 },
+  { label: "Integration plan", value: 74, decimals: 0 },
+  { label: "Launch checklist", value: 92, decimals: 0 },
 ];
 
-// Automated tasks trending up
+// Product clarity trending up.
 const AUTO_PATH =
   "M0,210 C40,205 60,185 90,188 S150,150 180,155 S240,118 270,108 S330,92 360,75 S440,52 480,40";
-// Manual workload trending down
+// Manual uncertainty trending down.
 const MANUAL_PATH =
   "M0,80 C60,95 110,120 160,128 S260,160 320,170 S430,196 480,200";
-// Same as AUTO_PATH but closed to the baseline for the gradient fill
 const AUTO_AREA = `${AUTO_PATH} L480,260 L0,260 Z`;
 
 export default function OpsPulse() {
@@ -107,11 +106,11 @@ export default function OpsPulse() {
         <div>
           <div className="pulse-heading mb-10">
             <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
-              Live Operations
+              Delivery Process
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-[-0.03em]">
-              <span className="text-ink">The pulse of</span>{" "}
-              <span className="gradient-text">your money ops</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-normal">
+              <span className="text-ink">From messy requirements</span>{" "}
+              <span className="gradient-text">to a usable product</span>
             </h2>
           </div>
 
@@ -149,12 +148,12 @@ export default function OpsPulse() {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <div className="text-[15px] font-semibold text-ink">
-                  Tasks automated
+                  Build momentum
                 </div>
-                <div className="text-xs text-muted mt-0.5">Last 12 months</div>
+                <div className="text-xs text-muted mt-0.5">Discovery to launch</div>
               </div>
               <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-primary/20 text-accent">
-                ▲ 38% this quarter
+                Roadmap aligned
               </span>
             </div>
 
@@ -198,11 +197,11 @@ export default function OpsPulse() {
             <div className="flex items-center gap-6 mt-5 text-xs text-muted">
               <span className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-accent" />
-                Automated by NexPay
+                NexPay build plan
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2.5 h-[2px] w-4 bg-muted/60" />
-                Manual workload
+                Manual uncertainty
               </span>
             </div>
           </div>

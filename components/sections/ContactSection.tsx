@@ -1,82 +1,62 @@
-"use client";
-
-import { useRef } from "react";
-import { gsap, useGSAP } from "@/lib/gsapConfig";
+const projectTypes = ["SaaS", "Web App", "Mobile App", "Reconciliation", "Reports", "Automation"];
 
 export default function ContactSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      gsap.from(".contact-content", {
-        opacity: 0,
-        y: 50,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".contact-content",
-          start: "top 85%",
-        },
-      });
-    },
-    { scope: sectionRef }
-  );
-
   return (
-    <section ref={sectionRef} id="contact" className="section-padding relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#f2f4f0] via-white to-[#f2f4f0]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-primary/[0.15] blur-[200px]" />
-      <div className="absolute top-1/4 right-0 w-[400px] h-[400px] rounded-full bg-deep/[0.05] blur-[150px]" />
-      <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] rounded-full bg-primary/[0.08] blur-[150px]" />
-
-      <div className="contact-content relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-6 leading-tight">
-          <span className="text-ink">Ready to eliminate</span>
-          <br />
-          <span className="gradient-text">manual work forever?</span>
-        </h2>
-
-        <p className="text-base sm:text-lg md:text-xl text-muted max-w-2xl mx-auto mb-8 sm:mb-10">
-          Join 2,500+ fintechs and finance teams already running their
-          operations on NexPay. Get started in minutes, not months.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center gap-3 max-w-xl mx-auto mb-5 sm:mb-6">
-          <div className="relative flex-1 w-full">
-            <input
-              type="email"
-              placeholder="Enter your work email"
-              className="w-full px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-white border border-ink/[0.12] text-ink placeholder:text-muted focus:outline-none focus:border-primary transition-all duration-300 text-sm sm:text-[15px]"
-            />
+    <section id="contact" className="bg-ink px-4 py-16 text-[#f7f4ec] sm:px-6 sm:py-20 lg:px-10 lg:py-28">
+      <div className="mx-auto grid w-full max-w-[1440px] overflow-hidden rounded-lg border border-white/[0.12] lg:grid-cols-[1fr_0.82fr]">
+        <div className="relative min-h-[420px] p-6 sm:p-10 lg:p-14">
+          <div className="absolute inset-0 tech-grid opacity-[0.2]" />
+          <div className="relative z-10 flex h-full flex-col justify-between">
+            <div>
+              <div className="eyebrow text-primary">Start</div>
+              <h2 className="mt-4 max-w-3xl text-4xl font-medium leading-[1.04] sm:text-5xl lg:text-6xl">
+                Let us map your next system.
+              </h2>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-2">
+              {projectTypes.map((type) => (
+                <span key={type} className="rounded-lg border border-white/[0.14] bg-white/[0.06] px-3 py-2 text-sm font-medium text-white/[0.78]">
+                  {type}
+                </span>
+              ))}
+            </div>
           </div>
-          <button className="btn-primary !py-3.5 sm:!py-4 !px-8 sm:!px-10 !rounded-full w-full sm:w-auto whitespace-nowrap">
-            <span>Start Free Trial</span>
-          </button>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-muted">
-          <div className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            No credit card required
-          </div>
-          <span className="text-muted hidden sm:inline">·</span>
-          <div className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            Free 14-day trial
-          </div>
-          <span className="text-muted hidden sm:inline">·</span>
-          <div className="flex items-center gap-1.5">
-            <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            Cancel anytime
+        <div className="bg-[#f7f4ec] p-6 text-ink sm:p-8 lg:p-10">
+          <div className="grid gap-4">
+            <label>
+              <span className="mb-2 block text-sm font-medium text-deep">Work email</span>
+              <input
+                type="email"
+                placeholder="you@company.com"
+                className="w-full rounded-lg border border-ink/[0.14] bg-white px-4 py-3 text-sm outline-none transition focus:border-accent"
+              />
+            </label>
+            <label>
+              <span className="mb-2 block text-sm font-medium text-deep">Project focus</span>
+              <select className="w-full rounded-lg border border-ink/[0.14] bg-white px-4 py-3 text-sm outline-none transition focus:border-accent">
+                <option>Custom SaaS platform</option>
+                <option>Web or mobile app</option>
+                <option>Financial reconciliation automation</option>
+                <option>Financial report automation</option>
+                <option>Workflow automation</option>
+              </select>
+            </label>
+            <label>
+              <span className="mb-2 block text-sm font-medium text-deep">What needs to work better?</span>
+              <textarea
+                placeholder="Briefly describe the workflow, product, report, or automation."
+                className="min-h-32 w-full resize-y rounded-lg border border-ink/[0.14] bg-white px-4 py-3 text-sm outline-none transition focus:border-accent"
+              />
+            </label>
+            <button type="button" className="btn-primary w-full">
+              Send Project Request
+            </button>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

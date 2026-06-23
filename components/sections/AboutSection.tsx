@@ -1,169 +1,50 @@
-"use client";
-
-import { useRef } from "react";
-import dynamic from "next/dynamic";
-import { gsap, useGSAP } from "@/lib/gsapConfig";
-import { stats } from "@/lib/constants";
-
-const PaymentsGlobe = dynamic(
-  () => import("@/components/three/PaymentsGlobe"),
-  { ssr: false }
-);
-
-const partners = [
-  "Meridian Bank",
-  "FlowPay",
-  "NorthLedger",
-  "Quantis",
-  "OrbitPay",
-  "VaultLine",
+const principles = [
+  {
+    title: "Requirement-first",
+    text: "We start with the business process, users, data, and decision points before choosing screens or features.",
+  },
+  {
+    title: "Product-minded",
+    text: "Even custom work is structured so repeated patterns can become reusable SaaS modules later.",
+  },
+  {
+    title: "Finance-aware",
+    text: "Reconciliation, reporting, audit history, and clean exports are treated as core workflows, not afterthoughts.",
+  },
 ];
 
 export default function AboutSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const counterRefs = useRef<(HTMLSpanElement | null)[]>([]);
-
-  useGSAP(
-    () => {
-      gsap.from(".about-heading", {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".about-heading",
-          start: "top 85%",
-        },
-      });
-
-      stats.forEach((stat, i) => {
-        const numericValue = parseFloat(stat.value.replace(/[^0-9.]/g, ""));
-        const el = counterRefs.current[i];
-        if (!el) return;
-
-        const obj = { val: 0 };
-        gsap.to(obj, {
-          val: numericValue,
-          duration: 2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-          },
-          onUpdate: () => {
-            if (!el) return;
-            const prefix = stat.value.startsWith("$") ? "$" : "";
-            const suffix = stat.value.replace(/[0-9.$,]/g, "");
-            const formatted =
-              numericValue >= 100
-                ? Math.round(obj.val).toLocaleString()
-                : obj.val.toFixed(numericValue % 1 !== 0 ? 2 : 0);
-            el.textContent = `${prefix}${formatted}${suffix}`;
-          },
-        });
-      });
-
-      gsap.from(".stats-card", {
-        opacity: 0,
-        y: 40,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".stats-card",
-          start: "top 85%",
-        },
-      });
-
-      gsap.from(".partner-name", {
-        opacity: 0,
-        y: 20,
-        duration: 0.5,
-        stagger: 0.08,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".partners-row",
-          start: "top 90%",
-        },
-      });
-    },
-    { scope: sectionRef }
-  );
-
   return (
-    <section ref={sectionRef} id="about" className="section-padding relative">
-      <div className="absolute inset-0 animated-gradient-bg opacity-50" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[1px] bg-gradient-to-r from-transparent via-ink/15 to-transparent" />
-
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
-        {/* Heading */}
-        <div className="about-heading text-center mb-10 sm:mb-16">
-          <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
+    <section id="about" className="relative bg-[#f7f8f4] py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto grid w-full max-w-[1400px] gap-10 px-4 sm:px-6 md:px-10 lg:grid-cols-[0.9fr_1.1fr] lg:px-16">
+        <div>
+          <span className="mb-4 inline-block text-sm font-medium uppercase tracking-[0.2em] text-accent">
             About
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-6">
-            <span className="text-ink">Powering the future</span>
-            <br />
-            <span className="gradient-text">of financial operations</span>
+          <h2 className="text-3xl font-semibold leading-tight tracking-normal text-ink sm:text-4xl md:text-5xl">
+            A software partner for custom SaaS, apps, and finance automation.
           </h2>
         </div>
 
-        {/* Stats Grid */}
-        <div className="stats-card gradient-border p-6 sm:p-10 md:p-14 mb-10 sm:mb-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
-            {stats.map((stat, i) => (
-              <div key={i} className="text-center">
-                <span
-                  ref={(el) => {
-                    counterRefs.current[i] = el;
-                  }}
-                  className="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold gradient-text-primary mb-2 sm:mb-3"
-                >
-                  {stat.value}
-                </span>
-                <span className="text-sm text-muted uppercase tracking-wider">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Mission + Globe */}
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mb-10 sm:mb-16">
-          <div className="relative h-[280px] sm:h-[380px] md:h-[460px] order-last lg:order-first">
-            <PaymentsGlobe />
-          </div>
-          <div>
-            <p className="text-lg sm:text-xl md:text-2xl text-muted leading-relaxed mb-4 sm:mb-6">
-              We&apos;re building the AI infrastructure that runs money
-              operations for fintechs, banks, and global platforms. Our mission
-              is to make every financial workflow{" "}
-              <span className="text-ink font-medium">
-                automated, intelligent, and self-optimizing
-              </span>{" "}
-              — so your team scales revenue, not headcount.
-            </p>
-            <p className="text-base sm:text-lg text-muted leading-relaxed">
-              From payment retries in São Paulo to KYC checks in Singapore,
-              NexPay automations move work across the globe around the clock —
-              every pulse on this map is a workflow completing itself.
-            </p>
-          </div>
-        </div>
-
-        {/* Partners */}
-        <div className="text-center">
-          <p className="text-xs text-muted uppercase tracking-[0.2em] mb-8">
-            Trusted by teams that move money
+        <div className="space-y-6">
+          <p className="text-base leading-8 text-muted sm:text-lg">
+            NexPay is positioned for businesses that need software shaped around
+            their own requirements: custom SaaS platforms, web apps, mobile
+            apps, internal tools, financial reconciliation automation, and
+            financial report automation.
           </p>
-          <div className="partners-row flex flex-wrap items-center justify-center gap-6 sm:gap-10 md:gap-16">
-            {partners.map((name) => (
-              <span
-                key={name}
-                className="partner-name text-lg sm:text-xl md:text-2xl font-bold text-ink/15 hover:text-ink/35 transition-colors duration-300 cursor-default tracking-wide"
-              >
-                {name}
-              </span>
+          <p className="text-base leading-8 text-muted sm:text-lg">
+            The site now makes room for both sides of the business: services
+            you can sell immediately, and product pages you can link later as
+            repeated client needs become packaged SaaS offerings.
+          </p>
+
+          <div className="grid gap-3 sm:grid-cols-3">
+            {principles.map((item) => (
+              <div key={item.title} className="rounded-lg border border-ink/[0.08] bg-white p-4">
+                <h3 className="font-semibold text-ink">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">{item.text}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -171,3 +52,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

@@ -176,7 +176,7 @@ function createFrontTexture() {
   ctx.fillStyle = "rgba(220, 234, 208, 0.55)";
   ctx.fillText("MEMBER SINCE 24", 64, 540);
   ctx.fillText("VALID THRU 12/30", 300, 540);
-  embossedText(ctx, "PRIYA SHARMA", 64, 590, "600 34px Inter, system-ui, sans-serif", 2);
+  embossedText(ctx, "SHUBHAM KADAM", 64, 590, "600 34px Inter, system-ui, sans-serif", 2);
 
   // Network mark: interlocked rings
   ctx.globalAlpha = 0.9;

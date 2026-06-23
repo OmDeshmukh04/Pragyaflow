@@ -35,6 +35,7 @@ export default function KpiBand() {
         const el = valueRefs.current[i];
         if (!el) return;
         const numericValue = parseFloat(stat.value.replace(/[^0-9.]/g, ""));
+        if (!Number.isFinite(numericValue)) return;
         const prefix = stat.value.startsWith("$") ? "$" : "";
         const suffix = stat.value.replace(/[0-9.$,]/g, "");
         const obj = { val: 0 };
@@ -71,7 +72,7 @@ export default function KpiBand() {
                     ref={(el) => {
                       valueRefs.current[i] = el;
                     }}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text-primary tabular-nums"
+                    className="text-lg sm:text-xl md:text-2xl font-bold gradient-text-primary tabular-nums leading-tight break-words"
                   >
                     {stat.value}
                   </span>
@@ -92,7 +93,7 @@ export default function KpiBand() {
                     />
                   </svg>
                 </div>
-                <span className="text-xs md:text-[13px] text-muted uppercase tracking-wider">
+                <span className="text-xs md:text-[13px] text-muted leading-snug">
                   {stat.label}
                 </span>
               </div>

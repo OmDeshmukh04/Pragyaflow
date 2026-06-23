@@ -1,137 +1,49 @@
-"use client";
-
-import { useRef, useState } from "react";
-import { ScrollTrigger, useGSAP } from "@/lib/gsapConfig";
-import { products } from "@/lib/constants";
-import DashboardMockup from "@/components/ui/DashboardMockup";
-
-const productColors = ["#054040", "#6f8f1f", "#0f766e", "#86a32e"];
+import { systems } from "@/lib/constants";
 
 export default function ProductShowcase() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useGSAP(
-    () => {
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "+=3000",
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-        onUpdate: (self) => {
-          const idx = Math.min(
-            Math.floor(self.progress * products.length),
-            products.length - 1
-          );
-          setActiveIndex(idx);
-        },
-      });
-    },
-    { scope: sectionRef }
-  );
-
   return (
-    <section id="products" className="relative">
-      <div
-        ref={sectionRef}
-        className="min-h-screen flex items-center relative overflow-hidden"
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-[#f2f4f0] to-white" />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] transition-colors duration-1000"
-          style={{ backgroundColor: `${productColors[activeIndex]}08` }}
-        />
-
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-          {/* Left: Text Content */}
-          <div className="flex flex-col gap-8">
-            <span className="text-sm font-medium text-accent uppercase tracking-[0.2em]">
-              Platform
-            </span>
-
-            <div className="flex items-center gap-3">
-              {products.map((_, i) => (
-                <div
-                  key={i}
-                  className="relative h-1 rounded-full transition-all duration-500"
-                  style={{
-                    width: activeIndex === i ? "48px" : "16px",
-                    background:
-                      activeIndex === i
-                        ? productColors[i]
-                        : "rgba(0,52,52,0.12)",
-                  }}
-                />
-              ))}
-            </div>
-
-            <div className="relative min-h-[250px] sm:min-h-[300px]">
-              {products.map((product, i) => (
-                <div
-                  key={product.title}
-                  className="absolute inset-0 transition-all duration-700"
-                  style={{
-                    opacity: activeIndex === i ? 1 : 0,
-                    transform: `translateY(${activeIndex === i ? 0 : 20}px)`,
-                    pointerEvents: activeIndex === i ? "auto" : "none",
-                  }}
-                >
-                  <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-5">
-                    <span style={{ color: productColors[i] }}>
-                      {product.title}
-                    </span>
-                  </h3>
-                  <p className="text-muted text-base sm:text-lg leading-relaxed mb-6 sm:mb-8 max-w-lg">
-                    {product.description}
-                  </p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                    {product.features.map((feature, fi) => (
-                      <div
-                        key={fi}
-                        className="flex items-center gap-3 text-[15px] text-muted"
-                      >
-                        <svg
-                          className="w-4 h-4 flex-shrink-0"
-                          style={{ color: productColors[i] }}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <button className="btn-secondary w-fit !rounded-full">
-              Explore Platform
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Right: Live dashboard mockup */}
-          <div className="relative flex items-center justify-center min-h-[300px] sm:min-h-[400px] lg:min-h-[550px]">
-            <DashboardMockup activeIndex={activeIndex} />
-          </div>
+    <section id="systems" className="bg-ink py-16 text-[#f7f4ec] sm:py-20 lg:py-28">
+      <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-10">
+        <div className="lg:sticky lg:top-28 lg:self-start">
+          <div className="eyebrow text-primary">Systems</div>
+          <h2 className="mt-3 text-4xl font-medium leading-[1.04] sm:text-5xl lg:text-6xl">
+            From requirement to operating software.
+          </h2>
+          <p className="mt-5 max-w-xl text-lg leading-8 text-white/[0.68]">
+            We turn customer-specific operations into structured software:
+            interfaces, data flows, automation rules, and launchable products.
+          </p>
         </div>
 
-        <div className="absolute bottom-6 sm:bottom-8 right-4 sm:right-8 lg:right-16 text-sm text-muted font-mono">
-          <span style={{ color: productColors[activeIndex] }}>
-            0{activeIndex + 1}
-          </span>
-          <span className="mx-1">/</span>
-          <span>0{products.length}</span>
+        <div className="relative overflow-hidden rounded-lg border border-white/[0.12] bg-white/[0.06] p-4 sm:p-6">
+          <div className="absolute inset-0 tech-grid opacity-[0.22]" />
+          <div className="relative grid gap-4">
+            {systems.map((step, index) => (
+              <div
+                key={step}
+                className="grid gap-4 rounded-lg border border-white/[0.10] bg-ink/[0.72] p-4 backdrop-blur sm:grid-cols-[72px_1fr_auto] sm:items-center"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-primary text-lg font-medium text-ink">
+                  0{index + 1}
+                </div>
+                <div>
+                  <h3 className="text-2xl font-medium text-white">{step}</h3>
+                  <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/[0.10]">
+                    <div
+                      className="h-full rounded-full bg-[linear-gradient(90deg,#00a99d,#c7ff4f)]"
+                      style={{ width: `${52 + index * 10}%` }}
+                    />
+                  </div>
+                </div>
+                <div className="rounded-lg border border-primary/[0.25] bg-primary/[0.10] px-4 py-2 text-sm font-medium text-primary">
+                  {index < 4 ? "Build" : "Launch"}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 }
+

@@ -1,180 +1,103 @@
-"use client";
+import { capabilities } from "@/lib/constants";
 
-import { useRef } from "react";
-import { gsap, useGSAP } from "@/lib/gsapConfig";
-import { solutions } from "@/lib/constants";
-import MetricsArc from "@/components/ui/MetricsArc";
-
-const icons: Record<string, React.ReactNode> = {
-  automation: (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M14 4v3M14 21v3M4 14h3M21 14h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="14" cy="14" r="5" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="14" cy="14" r="2" fill="currentColor" />
-    </svg>
-  ),
-  documents: (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M7 4h10l6 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M17 4v6h6M9 16h10M9 20h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  ai: (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="8" r="3" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="6" cy="20" r="3" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="22" cy="20" r="3" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M14 11v2M9 18l3-3M19 18l-3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  mining: (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M4 24l6-8 5 4 4-6 5 10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="10" cy="8" r="3" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M13 8h8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  integrations: (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <rect x="4" y="4" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="16" y="4" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="4" y="16" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <rect x="16" y="16" width="8" height="8" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 8h4M12 20h4M8 12v4M20 12v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
-  compliance: (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <path d="M14 3L4 8v6c0 5.55 4.16 10.74 10 12 5.84-1.26 10-6.45 10-12V8L14 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M10 14l3 3 5-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
-};
-
-const gradients: Record<string, string> = {
-  "from-cyan-500 to-blue-600": "linear-gradient(135deg, #054040, #0f766e)",
-  "from-purple-500 to-pink-600": "linear-gradient(135deg, #6f8f1f, #b5d447)",
-  "from-blue-500 to-indigo-600": "linear-gradient(135deg, #0f766e, #6f8f1f)",
-  "from-emerald-500 to-teal-600": "linear-gradient(135deg, #2f8f5f, #0f766e)",
-  "from-orange-500 to-amber-600": "linear-gradient(135deg, #8aa62e, #b5d447)",
-  "from-rose-500 to-red-600": "linear-gradient(135deg, #054040, #6f8f1f)",
-};
-
-export default function SolutionsSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      gsap.from(".solution-heading", {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".solution-heading",
-          start: "top 85%",
-        },
-      });
-
-      gsap.from(".solution-card", {
-        opacity: 0,
-        y: 60,
-        duration: 0.7,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: ".solutions-grid",
-          start: "top 80%",
-        },
-      });
-    },
-    { scope: sectionRef }
-  );
-
-  return (
-    <section ref={sectionRef} id="solutions" className="section-padding relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-transparent" />
-      <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full bg-primary/[0.12] blur-[120px]" />
-      <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full bg-deep/[0.05] blur-[120px]" />
-
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16">
-        {/* Heading + live metrics arc */}
-        <div className="solution-heading mb-12 sm:mb-16 lg:mb-20 grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center">
-          <div className="text-center lg:text-left">
-            <span className="inline-block text-sm font-medium text-accent uppercase tracking-[0.2em] mb-4">
-              Solutions
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-[-0.03em] mb-4 sm:mb-6">
-              <span className="gradient-text">Automate every money workflow.</span>
-              <br />
-              <span className="text-ink">Eliminate manual ops.</span>
-            </h2>
-            <p className="text-base sm:text-lg text-muted max-w-2xl mx-auto lg:mx-0">
-              A complete automation suite for fintechs, banks, and platforms that
-              move money. Built for regulated complexity, optimized for speed.
-            </p>
-            <div className="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-2.5 justify-center lg:justify-start max-w-xl mx-auto lg:mx-0">
-              {[
-                "Smart retries",
-                "AML monitoring",
-                "Auto-reconciliation",
-                "KYC in seconds",
-                "500+ connectors",
-                "Immutable audit trails",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass border border-ink/10 text-[12px] sm:text-[13px] text-deep"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+function TileVisual({ index }: { index: number }) {
+  if (index === 0) {
+    return (
+      <div className="mt-8 grid grid-cols-2 gap-3">
+        {["Portal", "Admin", "Billing", "Workflow"].map((label) => (
+          <div key={label} className="rounded-lg border border-white/10 bg-white/[0.08] p-3">
+            <div className="h-1.5 w-10 rounded-full bg-primary" />
+            <div className="mt-6 text-sm font-normal text-white">{label}</div>
           </div>
-          <div className="hidden lg:flex justify-end pr-2">
-            <MetricsArc />
+        ))}
+      </div>
+    );
+  }
+
+  if (index === 1) {
+    return (
+      <div className="mt-8 flex justify-center">
+        <div className="w-[152px] rounded-[28px] border border-white/[0.18] bg-ink p-2 shadow-2xl">
+          <div className="rounded-[22px] bg-[#f7f4ec] p-3 text-ink">
+            {["Approve", "Capture", "Sync"].map((label) => (
+              <div key={label} className="mb-2 rounded-lg bg-white p-3 text-sm font-normal shadow-sm">
+                {label}
+              </div>
+            ))}
           </div>
         </div>
+      </div>
+    );
+  }
 
-        {/* Cards Grid */}
-        <div className="solutions-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {solutions.map((solution) => (
-            <div
-              key={solution.title}
-              className="solution-card glass-card p-6 sm:p-8 group cursor-pointer"
-            >
-              <div
-                className="h-[2px] w-16 rounded-full mb-6 group-hover:w-24 transition-all duration-500"
-                style={{ background: gradients[solution.gradient] }}
-              />
-
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
-                style={{
-                  background: `${gradients[solution.gradient]?.split(",")[1]?.replace(")", "")}15`,
-                  border: `1px solid ${gradients[solution.gradient]?.split(",")[1]?.replace(")", "")}20`,
-                }}
-              >
-                <span className="text-ink">{icons[solution.icon]}</span>
-              </div>
-
-              <h3 className="text-lg sm:text-xl font-semibold text-ink mb-2 sm:mb-3 tracking-[-0.01em]">
-                {solution.title}
-              </h3>
-              <p className="text-muted leading-relaxed text-[15px]">
-                {solution.description}
-              </p>
-
-              <div className="mt-6 flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                <span className="gradient-text-primary">Learn more</span>
-                <svg className="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </div>
+  if (index === 2) {
+    return (
+      <div className="mt-8 space-y-3">
+        {["Bank", "Gateway", "Ledger"].map((label) => (
+          <div key={label} className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+            <div className="rounded-lg bg-white/[0.08] px-3 py-2 text-sm text-white/[0.84]">{label}</div>
+            <div className="h-px w-8 bg-primary" />
+            <div className="rounded-lg border border-primary/[0.30] bg-primary/[0.15] px-3 py-2 text-sm font-normal text-primary">
+              Matched
             </div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="mt-8 grid h-36 grid-cols-6 items-end gap-2">
+      {[42, 70, 55, 88, 76, 96].map((height, bar) => (
+        <div
+          key={bar}
+          className="rounded-t-lg bg-[linear-gradient(180deg,#c7ff4f,#00a99d)]"
+          style={{ height: `${height}%` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default function SolutionsSection() {
+  return (
+    <section id="capabilities" className="bg-bg py-16 sm:py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
+        <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <div className="eyebrow text-accent">Capabilities</div>
+            <h2 className="mt-3 max-w-3xl text-4xl font-medium leading-[1.04] text-ink sm:text-5xl lg:text-6xl">
+              Building blocks for modern business systems.
+            </h2>
+          </div>
+          <p className="max-w-xl text-lg leading-8 text-muted">
+            The offer is broad, but the interface stays simple: systems,
+            workflows, finance automation, and apps.
+          </p>
+        </div>
+
+        <div className="grid gap-4 lg:grid-cols-4">
+          {capabilities.map((item, index) => (
+            <article
+              key={item.title}
+              className={`dark-panel min-h-[420px] overflow-hidden rounded-lg border border-ink/10 p-5 text-white ${
+                index === 0 || index === 3 ? "lg:mt-10" : ""
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium uppercase tracking-[0.16em] text-primary">{item.kicker}</span>
+                <span className="text-sm font-medium text-white/[0.40]">0{index + 1}</span>
+              </div>
+              <TileVisual index={index} />
+              <div className="mt-10">
+                <h3 className="text-2xl font-medium text-white">{item.title}</h3>
+                <p className="mt-3 text-base leading-7 text-white/[0.68]">{item.description}</p>
+              </div>
+            </article>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

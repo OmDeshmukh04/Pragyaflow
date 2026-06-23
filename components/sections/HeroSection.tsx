@@ -1,215 +1,56 @@
-"use client";
-
-import { useRef, useCallback } from "react";
-import dynamic from "next/dynamic";
-import { gsap, ScrollTrigger, useGSAP } from "@/lib/gsapConfig";
-import { siteConfig } from "@/lib/constants";
-import LiveTicker from "@/components/ui/LiveTicker";
-import type { FinanceUniverseHandle } from "@/components/three/FinanceUniverse";
-
-const FinanceUniverse = dynamic(
-  () => import("@/components/three/FinanceUniverse"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-full bg-transparent flex items-center justify-center">
-        <div className="w-12 h-12 border-2 border-ink/15 border-t-primary rounded-full animate-spin" />
-      </div>
-    ),
-  }
-);
-
-const featureLines = [
-  "AI agents working 24/7",
-  "Reconciliation that closes itself",
-  "Compliance built in",
-];
-
-const mobileStats = [
-  { value: "$4.2B", label: "Volume Today" },
-  { value: "99.99%", label: "Auth Success" },
-  { value: "70%", label: "Ops Saved" },
-];
+import { capabilities, siteConfig } from "@/lib/constants";
 
 export default function HeroSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const universeRef = useRef<FinanceUniverseHandle>(null);
-
-  const setUniverseRef = useCallback(
-    (node: FinanceUniverseHandle | null) => {
-      (universeRef as React.MutableRefObject<FinanceUniverseHandle | null>).current = node;
-    },
-    []
-  );
-
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({ delay: 0.3 });
-      tl.from(".hero-badge", {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        ease: "power3.out",
-      })
-        .from(".hero-heading", {
-          opacity: 0,
-          y: 50,
-          duration: 0.8,
-          ease: "power3.out",
-        }, "-=0.3")
-        .from(".hero-line", {
-          opacity: 0,
-          x: -24,
-          duration: 0.5,
-          stagger: 0.1,
-          ease: "power3.out",
-        }, "-=0.4")
-        .from(".hero-buttons", {
-          opacity: 0,
-          y: 30,
-          duration: 0.6,
-          ease: "power3.out",
-        }, "-=0.3")
-        .from(".hero-ticker", {
-          opacity: 0,
-          y: 20,
-          duration: 0.6,
-          ease: "power3.out",
-        }, "-=0.4")
-        .from(".hero-canvas-wrapper", {
-          opacity: 0,
-          scale: 0.9,
-          duration: 1,
-          ease: "power3.out",
-        }, "-=1.0");
-
-      ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: 1,
-        onUpdate: (self) => {
-          if (universeRef.current?.scrollProgress) {
-            universeRef.current.scrollProgress.current.value = self.progress;
-          }
-        },
-      });
-
-      gsap.to(".hero-content", {
-        y: -80,
-        opacity: 0.3,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
-    },
-    { scope: sectionRef }
-  );
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
-    >
-      {/* Background effects */}
-      <div className="absolute inset-0 animated-gradient-bg" />
-      <div className="absolute inset-0 grid-bg" />
+    <section className="relative min-h-[94svh] overflow-hidden bg-ink text-[#f7f4ec]">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/nexpay-hero-systems.png')" }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,19,31,0.98)_0%,rgba(7,19,31,0.86)_34%,rgba(7,19,31,0.45)_72%,rgba(7,19,31,0.72)_100%)]" />
+      <div className="absolute inset-0 tech-grid opacity-[0.55]" />
 
-      {/* 3D Scene — card stays the centerpiece */}
-      <div className="hero-canvas-wrapper absolute inset-0 z-0">
-        <FinanceUniverse ref={setUniverseRef} />
-      </div>
-
-      {/* Content — left copy · card center-right */}
-      <div className="hero-content relative z-10 w-full max-w-[1480px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 pt-24 sm:pt-28 md:pt-32 pb-32 sm:pb-40 grid lg:grid-cols-[minmax(0,460px)_1fr] items-center gap-8 lg:gap-10">
-        {/* Left: copy */}
-        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-          <div className="hero-badge inline-flex items-center gap-2 sm:gap-2.5 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full glass border border-ink/10 mb-6 sm:mb-8">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow" />
-            <span className="text-xs sm:text-sm text-ink font-medium">
-              Introducing {siteConfig.name} — AI Automation
-            </span>
-          </div>
-
-          <h1 className="hero-heading text-3xl xs:text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.08] tracking-[-0.03em] sm:tracking-[-0.04em] mb-6 sm:mb-8">
-            <span className="gradient-text">Run Finance</span>
-            <br />
-            <span className="gradient-text">on Autopilot.</span>
-            <br />
-            <span className="text-ink">Scale Without Limits.</span>
+      <div className="relative z-10 mx-auto flex min-h-[94svh] w-full max-w-[1440px] flex-col justify-end px-4 pb-8 pt-28 sm:px-6 md:px-10 lg:px-16">
+        <div className="max-w-4xl pb-10 sm:pb-14 lg:pb-[72px]">
+          <div className="eyebrow mb-5 text-primary">{siteConfig.tagline}</div>
+          <h1 className="max-w-5xl text-5xl font-medium leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl xl:text-8xl">
+            Software systems for business-critical workflows.
           </h1>
-
-          <div className="flex flex-col gap-2.5 sm:gap-3 mb-8 sm:mb-10">
-            {featureLines.map((line) => (
-              <div
-                key={line}
-                className="hero-line flex items-center gap-2.5 sm:gap-3 justify-center lg:justify-start"
-              >
-                <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                <span className="text-sm sm:text-base md:text-lg text-deep">{line}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="hero-buttons flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
-            <button className="btn-primary !py-3.5 sm:!py-4 !px-7 sm:!px-9 !text-sm sm:!text-base !rounded-full w-full sm:w-auto">
-              <span>Start Free Trial</span>
-              <svg
-                className="w-4 h-4 sm:w-5 sm:h-5 relative z-10"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
-            <button className="btn-secondary !py-3.5 sm:!py-4 !px-7 sm:!px-9 !text-sm sm:!text-base !rounded-full w-full sm:w-auto">
-              <svg
-                className="w-4 h-4 sm:w-5 sm:h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              Watch Demo
-            </button>
-          </div>
-
-          {/* Compact stats for mobile/tablet where the metric arc is hidden */}
-          <div className="flex lg:hidden items-center justify-center gap-6 sm:gap-8 mt-8 sm:mt-10">
-            {mobileStats.map((stat) => (
-              <div key={stat.label} className="flex flex-col items-center">
-                <span className="text-lg sm:text-xl font-bold text-ink tabular-nums">{stat.value}</span>
-                <span className="text-[9px] sm:text-[10px] text-muted uppercase tracking-wider mt-1">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-white/[0.72] sm:text-xl">
+            Custom SaaS, mobile apps, reconciliation automation, and reporting
+            platforms built around how your company actually works.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#contact" className="btn-primary">
+              Start a Project
+              <span aria-hidden>-&gt;</span>
+            </a>
+            <a href="#systems" className="btn-secondary">
+              Explore Systems
+            </a>
           </div>
         </div>
 
-        {/* Right: empty — the 3D card shows through here */}
-        <div className="hidden lg:block" />
-      </div>
-
-      {/* Live ticker under the card */}
-      <div className="hero-ticker hero-content absolute bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 z-10 w-full px-4 sm:px-0 sm:w-auto">
-        <LiveTicker />
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40 z-10 hidden sm:flex">
-        <span className="text-xs text-muted uppercase tracking-widest">Scroll</span>
-        <div className="w-5 h-8 rounded-full border border-ink/25 flex items-start justify-center p-1.5">
-          <div className="w-1 h-2 rounded-full bg-ink/40 animate-[float_2s_ease-in-out_infinite]" />
+        <div className="grid gap-3 border-t border-white/[0.14] pt-5 sm:grid-cols-2 lg:grid-cols-4">
+          {capabilities.map((item) => (
+            <a
+              key={item.title}
+              href="#capabilities"
+              className="group rounded-lg border border-white/[0.12] bg-white/[0.06] p-4 backdrop-blur-md transition hover:border-primary/[0.70] hover:bg-white/[0.1]"
+            >
+              <div className="text-xs font-medium uppercase tracking-[0.16em] text-primary/[0.85]">
+                {item.kicker}
+              </div>
+              <div className="mt-3 flex items-center justify-between gap-4">
+                <span className="text-lg font-normal text-white">{item.title}</span>
+                <span className="text-primary transition group-hover:translate-x-1">-&gt;</span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+

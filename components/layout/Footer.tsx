@@ -1,84 +1,87 @@
-"use client";
+import PragyaFlowLogo from "@/components/brand/PragyaFlowLogo";
+import { contactInfo, footerGroups, siteConfig } from "@/lib/constants";
 
-import { siteConfig } from "@/lib/constants";
-
-const footerLinks = {
-  Platform: ["Command Center", "AI Agents", "Reconciliation Engine", "Automation Studio", "API Docs", "Pricing"],
-  Company: ["About", "Careers", "Blog", "Press", "Partners", "Contact"],
-  Resources: ["Documentation", "Guides", "Support", "Status", "Changelog", "Security"],
-};
+const socialLinks = [
+  {
+    label: "LinkedIn",
+    href: contactInfo.linkedin,
+    icon: (
+      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.23 0z" />
+      </svg>
+    ),
+  },
+  {
+    label: "Facebook",
+    href: contactInfo.facebook,
+    icon: (
+      <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+        <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.03 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.96h-1.51c-1.49 0-1.96.93-1.96 1.89v2.27h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z" />
+      </svg>
+    ),
+  },
+];
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-ink/[0.06]">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 md:px-10 lg:px-16 py-12 sm:py-16 md:py-20">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-8 sm:gap-10 md:gap-8">
-          {/* Brand Column */}
-          <div className="col-span-2">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-ink font-heading font-semibold text-base">
-                N
-              </div>
-              <span className="font-heading text-xl font-semibold text-ink tracking-tight">
-                {siteConfig.name}
-              </span>
-            </div>
-            <p className="text-muted text-sm leading-relaxed max-w-xs mb-6">
-              The AI automation platform for fintech and financial services.
-              Eliminate manual ops, stay compliant, and scale infinitely.
+    <footer className="border-t border-ink/[0.10] bg-[#f7f4ec]">
+      <div className="mx-auto w-full max-w-[1440px] px-4 py-12 sm:px-6 lg:px-10 lg:py-16">
+        <div className="grid gap-10 lg:grid-cols-[1.35fr_0.75fr_0.75fr_0.95fr]">
+          <div>
+            <PragyaFlowLogo tone="dark" />
+            <p className="mt-5 max-w-md text-sm leading-7 text-muted">
+              {siteConfig.description}
             </p>
-
-            {/* Social Icons */}
-            <div className="flex items-center gap-3">
-              <a href="#" className="w-9 h-9 rounded-xl bg-ink/[0.04] border border-ink/[0.08] flex items-center justify-center text-muted hover:text-ink hover:border-ink/[0.2] hover:bg-ink/[0.06] transition-all duration-300" aria-label="Twitter">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-              </a>
-              <a href="#" className="w-9 h-9 rounded-xl bg-ink/[0.04] border border-ink/[0.08] flex items-center justify-center text-muted hover:text-ink hover:border-ink/[0.2] hover:bg-ink/[0.06] transition-all duration-300" aria-label="LinkedIn">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
-              <a href="#" className="w-9 h-9 rounded-xl bg-ink/[0.04] border border-ink/[0.08] flex items-center justify-center text-muted hover:text-ink hover:border-ink/[0.2] hover:bg-ink/[0.06] transition-all duration-300" aria-label="GitHub">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-              </a>
+            <div className="mt-6 flex gap-3">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  aria-label={link.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink/[0.12] text-deep transition hover:border-accent hover:bg-white hover:text-accent"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Link Columns */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h4 className="text-sm font-semibold text-ink mb-5 tracking-wide">
-                {category}
-              </h4>
-              <ul className="flex flex-col gap-3">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-muted hover:text-ink transition-colors duration-300">
-                      {link}
+          {footerGroups.map((group) => (
+            <div key={group.title}>
+              <h3 className="text-sm font-medium text-ink">{group.title}</h3>
+              <ul className="mt-4 space-y-3">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-sm text-muted transition hover:text-accent">
+                      {link.label}
                     </a>
                   </li>
                 ))}
               </ul>
             </div>
           ))}
+
+          <div>
+            <h3 className="text-sm font-medium text-ink">Contact</h3>
+            <div className="mt-4 space-y-3 text-sm text-muted">
+              <a href={contactInfo.phoneHref} className="block transition hover:text-accent">
+                {contactInfo.phone}
+              </a>
+              <a href={contactInfo.emailHref} className="block transition hover:text-accent">
+                {contactInfo.email}
+              </a>
+              <a href="#contact" className="mt-5 inline-flex rounded-lg bg-ink px-4 py-2.5 text-sm font-medium text-[#f7f4ec] transition hover:bg-deep">
+                Start a Project
+              </a>
+            </div>
+          </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-ink/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
-          <p className="text-xs text-muted">
-            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <a href="#" className="text-xs text-muted hover:text-ink transition-colors">Privacy Policy</a>
-            <a href="#" className="text-xs text-muted hover:text-ink transition-colors">Terms of Service</a>
-            <a href="#" className="text-xs text-muted hover:text-ink transition-colors">Cookie Policy</a>
-          </div>
+        <div className="mt-10 flex flex-col gap-3 border-t border-ink/[0.10] pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+          <span>{new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
+          <span>Custom SaaS, apps, reconciliation, and report automation.</span>
         </div>
       </div>
     </footer>

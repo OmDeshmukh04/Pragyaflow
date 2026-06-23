@@ -1,121 +1,119 @@
 export const siteConfig = {
-  name: "NexPay",
-  tagline: "Financial Operations on Autopilot.",
+  name: "PragyaFlow",
+  tagline: "Business-critical software systems.",
   description:
-    "The AI automation platform for fintech and financial services. Automate payment operations, KYC, reconciliation, and compliance — and scale revenue without scaling headcount.",
-  url: "https://nexpay.io",
+    "Custom SaaS platforms, web apps, mobile apps, reconciliation automation, and reporting systems built around real business workflows.",
+  url: "https://pragyaflow.com",
 };
 
 export const navLinks = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Platform", href: "#products" },
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
+  { label: "Solutions", href: "#capabilities" },
+  { label: "Approach", href: "#systems" },
+  { label: "Delivered Work", href: "#proof" },
   { label: "Contact", href: "#contact" },
 ];
 
-export const solutions = [
+export const contactInfo = {
+  phone: "+91 98765 43210",
+  phoneHref: "tel:+919876543210",
+  email: "hello@pragyaflow.com",
+  emailHref: "mailto:hello@pragyaflow.com",
+  linkedin: "https://www.linkedin.com/company/pragyaflow",
+  facebook: "https://www.facebook.com/pragyaflow",
+};
+
+export const footerGroups = [
   {
-    title: "Payment Ops Automation",
-    description:
-      "Automate retries, failed-payment recovery, refunds, and exception handling. Your payment operations run 24/7 — without a night shift.",
-    icon: "automation",
-    gradient: "from-cyan-500 to-blue-600",
+    title: "Solutions",
+    links: [
+      { label: "SaaS Platforms", href: "#capabilities" },
+      { label: "Mobile Apps", href: "#capabilities" },
+      { label: "Reconciliation", href: "#capabilities" },
+      { label: "Report Automation", href: "#capabilities" },
+    ],
   },
   {
-    title: "KYC & Onboarding",
-    description:
-      "Verify identities, screen documents, and onboard customers in minutes instead of days with AI-driven document intelligence.",
-    icon: "documents",
-    gradient: "from-purple-500 to-pink-600",
-  },
-  {
-    title: "AI Agents for Finance",
-    description:
-      "Deploy autonomous agents that resolve disputes, fight chargebacks, chase invoices, and answer customer queries end-to-end.",
-    icon: "ai",
-    gradient: "from-blue-500 to-indigo-600",
-  },
-  {
-    title: "Smart Reconciliation",
-    description:
-      "Match millions of transactions across banks, PSPs, and internal ledgers automatically — and surface every discrepancy in real time.",
-    icon: "mining",
-    gradient: "from-emerald-500 to-teal-600",
-  },
-  {
-    title: "Universal Integrations",
-    description:
-      "Connect your banks, PSPs, ERPs, and CRMs with 500+ pre-built connectors and AI-powered data transformation pipelines.",
-    icon: "integrations",
-    gradient: "from-orange-500 to-amber-600",
-  },
-  {
-    title: "Compliance Autopilot",
-    description:
-      "Continuous AML monitoring, automated audit trails, and one-click regulatory reporting across every market you operate in.",
-    icon: "compliance",
-    gradient: "from-rose-500 to-red-600",
+    title: "Company",
+    links: [
+      { label: "Approach", href: "#systems" },
+      { label: "Delivered Work", href: "#proof" },
+      { label: "Start a Project", href: "#contact" },
+    ],
   },
 ];
 
-export const products = [
+export const capabilities = [
   {
-    title: "Command Center",
-    description:
-      "Mission control for your financial operations. Watch transactions stream in live, track every automated workflow, and resolve exceptions from one screen.",
-    features: ["Live transaction feed", "Exception inbox", "Team workspaces", "Role-based access"],
+    title: "SaaS Platforms",
+    kicker: "Product systems",
+    description: "Client portals, admin consoles, roles, subscriptions, and workflow modules.",
   },
   {
-    title: "AI Agents",
-    description:
-      "Autonomous agents that handle complex multi-step finance work — dispute resolution, chargeback evidence, invoice chasing, customer communication.",
-    features: ["Multi-step reasoning", "Human-in-the-loop", "Self-healing workflows", "Continuous learning"],
+    title: "Mobile Apps",
+    kicker: "Field and customer apps",
+    description: "Android and iOS-ready experiences for approvals, requests, and operational work.",
   },
   {
-    title: "Reconciliation Engine",
-    description:
-      "ML-powered matching across banks, payment providers, and ledgers. Closes your books continuously instead of at month-end panic.",
-    features: ["Auto-matching at scale", "Discrepancy alerts", "Multi-currency support", "Audit-ready trails"],
+    title: "Reconciliation",
+    kicker: "Finance automation",
+    description: "Bank, ledger, gateway, and transaction matching with exception review.",
   },
   {
-    title: "Automation Studio",
-    description:
-      "Visual no-code builder for financial workflows. Drag, drop, deploy — compliance rules and approval chains included, zero engineering required.",
-    features: ["Visual builder", "500+ connectors", "Approval chains", "Version control"],
+    title: "Reports",
+    kicker: "Scheduled intelligence",
+    description: "Dashboards, exports, and recurring financial reporting pipelines.",
+  },
+];
+
+export const systems = [
+  "Requirement mapping",
+  "Workflow architecture",
+  "Product interface",
+  "Data automation",
+  "Launch and iteration",
+];
+
+export const proof = [
+  {
+    title: "Financial reconciliation automation",
+    description: "Matching logic, review queues, clean exports, and audit-ready outputs.",
+  },
+  {
+    title: "Financial report automation",
+    description: "Recurring finance summaries, dashboards, and structured report packs.",
+  },
+  {
+    title: "Custom SaaS and apps",
+    description: "Business-specific portals, mobile flows, and operational software modules.",
   },
 ];
 
 export const stats = [
-  { value: "$48B+", label: "Transactions Automated / Yr" },
-  { value: "10M+", label: "Tasks Automated Daily" },
-  { value: "99.99%", label: "Platform Uptime" },
-  { value: "70%", label: "Lower Ops Cost" },
+  { value: "SaaS", label: "Custom platforms" },
+  { value: "Apps", label: "Web and mobile" },
+  { value: "Recon", label: "Financial matching" },
+  { value: "Reports", label: "Automated outputs" },
 ];
 
 export const services = [
   {
-    title: "White-Glove Onboarding",
-    description:
-      "A dedicated implementation team maps your financial processes, builds your first automations, and gets you live without disrupting operations.",
+    title: "Scope",
+    description: "Map the requirement, users, workflow, data, and launch plan.",
     icon: "onboarding",
   },
   {
-    title: "Risk & Compliance Advisory",
-    description:
-      "In-house regulatory experts help you encode KYC/AML policy into automated workflows that stay compliant in every geography.",
-    icon: "training",
+    title: "Build",
+    description: "Design and develop the SaaS, app, automation, or reporting system.",
+    icon: "custom",
   },
   {
-    title: "24/7 Managed Operations",
-    description:
-      "Money never sleeps, and neither do we. Proactive monitoring, instant incident response, and continuous optimization of your automations.",
+    title: "Launch",
+    description: "Prepare the system for users, feedback, iteration, and product growth.",
     icon: "support",
   },
   {
-    title: "Custom Development",
-    description:
-      "Bespoke automation solutions for your unique flows — built by the same AI engineering team that builds the platform.",
-    icon: "custom",
+    title: "Automate",
+    description: "Turn repeated finance and operations work into reliable software flows.",
+    icon: "training",
   },
 ];

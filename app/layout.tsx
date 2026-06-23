@@ -1,45 +1,38 @@
 import type { Metadata } from "next";
-import { Inter, Manrope } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
-const inter = Inter({
+const figtree = Figtree({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
+  variable: "--font-figtree",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "NexAI — Automate Everything. Scale Infinitely.",
+  title: "PragyaFlow | Business-Critical Software Systems",
   description:
-    "AI-powered automation platform that eliminates manual work. Streamline operations, optimize workflows, and scale your business with intelligent automation. 10M+ tasks automated daily.",
+    "PragyaFlow builds custom SaaS platforms, web apps, mobile apps, financial reconciliation automation, and financial report automation for business-critical workflows.",
   keywords: [
-    "AI automation",
-    "workflow automation",
-    "intelligent automation",
-    "AI agents",
-    "process automation",
-    "SaaS platform",
-    "enterprise automation",
+    "custom SaaS development",
+    "web app development",
+    "mobile app development",
+    "financial reconciliation automation",
+    "financial report automation",
+    "business workflow automation",
   ],
   openGraph: {
-    title: "NexAI — Automate Everything. Scale Infinitely.",
+    title: "PragyaFlow | Business-Critical Software Systems",
     description:
-      "AI-powered automation platform that eliminates manual work. Deploy AI agents, automate workflows, and scale operations.",
+      "Custom SaaS, apps, and finance automation built around real business workflows.",
     type: "website",
-    url: "https://nexai.io",
+    url: "https://pragyaflow.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "NexAI — Automate Everything. Scale Infinitely.",
+    title: "PragyaFlow | Business-Critical Software Systems",
     description:
-      "AI-powered automation platform that eliminates manual work. Deploy AI agents, automate workflows, and scale operations.",
+      "Custom SaaS, apps, and finance automation built around real business workflows.",
   },
 };
 
@@ -49,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
-      <body className="noise">
+    <html lang="en" className={figtree.variable}>
+      <body>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

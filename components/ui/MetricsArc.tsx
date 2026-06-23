@@ -13,12 +13,12 @@ interface Metric {
 }
 
 const METRICS: Metric[] = [
-  { value: 4.2, decimals: 1, prefix: "$", suffix: "B", label: "Volume Today", detail: "Across 42 payment rails" },
-  { value: 99.99, decimals: 2, suffix: "%", label: "Auth Success", detail: "Smart retries recover 11% more" },
-  { value: 1.2, decimals: 1, suffix: "M", label: "KYC Checks", detail: "Median clear time: 38s" },
-  { value: 2.3, decimals: 1, suffix: "M", label: "Exceptions Solved", detail: "94% without human touch" },
-  { value: 70, decimals: 0, suffix: "%", label: "Ops Cost Saved", detail: "vs. fully manual operations" },
-  { value: 100, decimals: 0, suffix: "%", label: "Audit Coverage", detail: "Every action logged" },
+  { value: 1, decimals: 0, prefix: "0", label: "SaaS", detail: "Client portals and admin products" },
+  { value: 2, decimals: 0, prefix: "0", label: "Web Apps", detail: "Dashboards and business systems" },
+  { value: 3, decimals: 0, prefix: "0", label: "Mobile Apps", detail: "Android and iOS-ready workflows" },
+  { value: 4, decimals: 0, prefix: "0", label: "Recon", detail: "Bank, ledger, and transaction matching" },
+  { value: 5, decimals: 0, prefix: "0", label: "Reports", detail: "Scheduled finance and ops reporting" },
+  { value: 6, decimals: 0, prefix: "0", label: "AI Workflows", detail: "Automation for repetitive team work" },
 ];
 
 // Planets sit on a circle that bulges left; scrolling slides them along it
