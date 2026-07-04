@@ -5,27 +5,9 @@ This repo is configured for this flow:
 1. Create a branch from `main`.
 2. Push your changes to that branch.
 3. Open a pull request into `main`.
-4. GitHub Actions runs lint and build checks.
+4. GitHub Actions runs lint and build checks (`pr-checks.yml`).
 5. Merge the pull request.
-6. GitHub Actions deploys `main` to Vercel production.
-
-## Required GitHub Secrets
-
-Add these in GitHub:
-
-`Settings` -> `Secrets and variables` -> `Actions` -> `New repository secret`
-
-Required secrets:
-
-- `VERCEL_TOKEN`
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
-
-You can create `VERCEL_TOKEN` from:
-
-`Vercel` -> `Account Settings` -> `Tokens`
-
-You can get `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` from Vercel project settings, or by running `vercel link` locally and reading `.vercel/project.json`. Do not commit the `.vercel` folder.
+6. Vercel automatically deploys `main` to production (the Vercel project is connected to this GitHub repo, so every push to `main` triggers a production deployment — no GitHub Action or secrets needed).
 
 ## Recommended GitHub Branch Protection
 
@@ -41,6 +23,11 @@ Recommended settings for `main`:
 - Require branches to be up to date before merging
 - Block force pushes
 
-## Vercel Auto Deployment Note
+## Deploying via GitHub Actions instead (optional)
 
-If the Vercel project is already connected directly to GitHub, Vercel may also deploy automatically on pushes to `main`. To make GitHub Actions the only production deployment path, disable automatic Git deployments in the Vercel project Git settings.
+If you ever want GitHub Actions to own production deployments (instead of Vercel's Git integration), restore a workflow that runs `vercel pull` / `vercel build` / `vercel deploy` with these repository secrets:
+
+- `VERCEL_TOKEN` (create in Vercel -> Account Settings -> Tokens)
+- `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` (from Vercel project settings, or `.vercel/project.json` after running `vercel link` locally — do not commit the `.vercel` folder)
+
+Then disable automatic Git deployments in the Vercel project Git settings so the two paths don't both deploy.

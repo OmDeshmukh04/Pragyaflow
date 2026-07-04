@@ -14,7 +14,7 @@ export default function WhyPragyaFlowPage() {
       <section className="dark-panel px-4 pb-24 pt-32 text-white sm:px-6 lg:px-10 lg:pb-32 lg:pt-40">
         <div className="mx-auto max-w-[1500px]">
           <div className="max-w-6xl">
-            <h1 className="text-6xl font-bold leading-[0.94] tracking-tight sm:text-7xl lg:text-8xl">
+            <h1 className="max-w-5xl text-5xl font-bold leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
               We build around the business, not around a template.
             </h1>
           </div>
