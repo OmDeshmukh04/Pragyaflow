@@ -1,43 +1,46 @@
 export const siteConfig = {
   name: "PragyaFlow",
-  tagline: "Business-critical software systems.",
+  tagline: "Custom software for serious business workflows.",
   description:
-    "Custom SaaS platforms, web apps, mobile apps, reconciliation automation, and reporting systems built around real business workflows.",
+    "PragyaFlow builds SaaS platforms, web apps, mobile apps, reconciliation automation, and reporting systems for growing teams.",
   url: "https://pragyaflow.com",
 };
 
 export const navLinks = [
-  { label: "Solutions", href: "#capabilities" },
-  { label: "Products", href: "#products" },
-  { label: "Delivered Work", href: "#proof" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Why PragyaFlow", href: "/why-pragyaflow" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "/contact" },
+  { label: "Careers", href: "/careers" },
 ];
 
 export const contactInfo = {
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
-  email: "hello@pragyaflow.com",
-  emailHref: "mailto:hello@pragyaflow.com",
-  linkedin: "https://www.linkedin.com/company/pragyaflow",
+  phone: "+91 89565 06020",
+  phoneHref: "tel:+918956506020",
+  email: "admin@pragyaflow.com",
+  emailHref: "mailto:admin@pragyaflow.com",
+  linkedin: "https://www.linkedin.com/company/pargyaflow/",
   facebook: "https://www.facebook.com/pragyaflow",
 };
 
 export const footerGroups = [
   {
-    title: "Solutions",
+    title: "Services",
     links: [
-      { label: "SaaS Platforms", href: "#capabilities" },
-      { label: "Mobile Apps", href: "#capabilities" },
-      { label: "Reconciliation", href: "#capabilities" },
-      { label: "Report Automation", href: "#capabilities" },
+      { label: "SaaS Platforms", href: "/services" },
+      { label: "Web Applications", href: "/services" },
+      { label: "Mobile Apps", href: "/services" },
+      { label: "Finance Automation", href: "/services" },
     ],
   },
   {
     title: "Company",
     links: [
-      { label: "Products", href: "#products" },
-      { label: "Delivered Work", href: "#proof" },
-      { label: "Start a Project", href: "#contact" },
+      { label: "Why PragyaFlow", href: "/why-pragyaflow" },
+      { label: "About Us", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact", href: "/contact" },
     ],
   },
 ];
@@ -45,24 +48,89 @@ export const footerGroups = [
 export const capabilities = [
   {
     title: "SaaS Platforms",
-    kicker: "Product systems",
-    description: "Client portals, admin consoles, roles, subscriptions, and workflow modules.",
+    kicker: "Products",
+    description: "Client portals, admin consoles, roles, billing, subscriptions, and workflow modules for customer-specific businesses.",
+  },
+  {
+    title: "Web Applications",
+    kicker: "Operations",
+    description: "Fast, polished web apps for internal teams, customers, approvals, dashboards, and operational workflows.",
   },
   {
     title: "Mobile Apps",
-    kicker: "Field and customer apps",
-    description: "Android and iOS-ready experiences for approvals, requests, and operational work.",
+    kicker: "Field teams",
+    description: "Android and iOS-ready experiences for field operations, customers, approvals, service requests, and data capture.",
   },
   {
-    title: "Reconciliation",
-    kicker: "Finance automation",
-    description: "Bank, ledger, gateway, and transaction matching with exception review.",
+    title: "Finance Automation",
+    kicker: "Reconciliation",
+    description: "Bank, ledger, gateway, and transaction matching with exception queues, reports, and audit-ready outputs.",
+  },
+];
+
+export const serviceOfferings = [
+  {
+    title: "Custom SaaS Development",
+    eyebrow: "Product build",
+    description:
+      "From scope to launch: portals, admin panels, subscriptions, permissions, workflows, and customer-facing product surfaces.",
   },
   {
-    title: "Reports",
-    kicker: "Scheduled intelligence",
-    description: "Dashboards, exports, and recurring financial reporting pipelines.",
+    title: "Web App Development",
+    eyebrow: "Business tools",
+    description:
+      "Modern web applications for operations, sales, finance, support, approvals, reporting, and team productivity.",
   },
+  {
+    title: "Mobile App Development",
+    eyebrow: "Field + customer",
+    description:
+      "Mobile-first experiences for customer requests, internal approvals, field activity, notifications, and service workflows.",
+  },
+  {
+    title: "Financial Reconciliation",
+    eyebrow: "Automation",
+    description:
+      "Matching engines for bank, ledger, gateway, and transaction data with clear exception handling and review flows.",
+  },
+  {
+    title: "Financial Report Automation",
+    eyebrow: "Reporting",
+    description:
+      "Recurring reports, exports, dashboards, summaries, and structured finance packs generated from reliable data flows.",
+  },
+  {
+    title: "Workflow Automation",
+    eyebrow: "Efficiency",
+    description:
+      "Replace repeated manual steps with clean process logic, notifications, approvals, and operational software modules.",
+  },
+];
+
+export const whyPoints = [
+  {
+    title: "Business-first architecture",
+    description: "We map the actual workflow before designing the software, so the product fits the company instead of forcing a template.",
+  },
+  {
+    title: "Clean product experience",
+    description: "Interfaces stay simple, readable, and useful for the people who operate them every day.",
+  },
+  {
+    title: "Automation with control",
+    description: "Finance and workflow automation includes review states, exceptions, logs, and human handoff where needed.",
+  },
+  {
+    title: "Built to evolve",
+    description: "We design systems that can become products, add modules, support more users, and grow after launch.",
+  },
+];
+
+export const processSteps = [
+  "Discover the workflow and business rules",
+  "Design the product structure and user journeys",
+  "Build the application, automation, and data flows",
+  "Launch, measure, and improve with real users",
 ];
 
 export const systems = [
@@ -79,9 +147,9 @@ export const products = [
     label: "AI Front Desk",
     status: "Private beta",
     description:
-      "A multilingual voice receptionist for dental clinics that answers clinic-approved questions, captures appointment intent, and routes urgent cases to staff.",
+      "A multilingual voice receptionist for dental clinics that answers clinic-approved questions, captures appointment intent, and routes urgent patient cases to staff.",
     image: "/images/vaanicare-ai-receptionist.png",
-    demoUrl: process.env.NEXT_PUBLIC_VAANICARE_DEMO_URL || "#contact",
+    demoUrl: process.env.NEXT_PUBLIC_VAANICARE_DEMO_URL || "/contact",
     repositoryUrl: "https://github.com/OmDeshmukh04/VaaniCare",
     tags: ["Voice AI", "Healthcare", "Booking", "Human handoff"],
     metrics: [
@@ -100,15 +168,15 @@ export const products = [
 export const proof = [
   {
     title: "Financial reconciliation automation",
-    description: "Matching logic, review queues, clean exports, and audit-ready outputs.",
+    description: "Matching logic, exception queues, clean exports, and audit-ready outputs.",
   },
   {
     title: "Financial report automation",
-    description: "Recurring finance summaries, dashboards, and structured report packs.",
+    description: "Recurring summaries, dashboards, and structured report packs for finance teams.",
   },
   {
     title: "Custom SaaS and apps",
-    description: "Business-specific portals, mobile flows, and operational software modules.",
+    description: "Business-specific portals, mobile flows, and operational modules built around real users.",
   },
 ];
 

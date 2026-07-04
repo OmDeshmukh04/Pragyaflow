@@ -1,66 +1,64 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { useLenis } from "lenis/react";
 import PragyaFlowLogo from "@/components/brand/PragyaFlowLogo";
 import { navLinks } from "@/lib/constants";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const lenis = useLenis();
-
-  const handleNavClick = (href: string) => {
-    setMobileOpen(false);
-    if (lenis) {
-      lenis.scrollTo(href, { offset: -84, duration: 1.1 });
-    } else {
-      document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/[0.10] bg-[#f7f4ec]/[0.94] shadow-[0_12px_34px_rgba(7,19,31,0.07)] backdrop-blur-xl">
-      <nav className="mx-auto flex h-[72px] w-full max-w-[1680px] items-center justify-between px-4 sm:px-6 lg:px-10 2xl:px-16">
-        <button
-          onClick={() => {
-            setMobileOpen(false);
-            if (lenis) lenis.scrollTo(0, { duration: 1.1 });
-            else window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="flex items-center gap-3 text-left"
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-ink/[0.08] bg-surface/[0.86] shadow-[0_18px_60px_rgba(6,24,23,0.06)] backdrop-blur-2xl">
+      <nav className="mx-auto flex h-[74px] w-full max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-10">
+        <Link
+          href="/"
+          onClick={() => setMobileOpen(false)}
+          className="flex min-w-0 items-center text-left lg:min-w-[220px]"
           aria-label="Go to homepage"
         >
-          <PragyaFlowLogo height={40} priority />
-        </button>
+          <PragyaFlowLogo height={34} priority />
+        </Link>
 
-        <div className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => handleNavClick(link.href)}
-              className="group relative cursor-pointer rounded-lg px-3 py-2 text-[15px] font-semibold text-ink/[0.88] transition-all duration-300 hover:bg-white/[0.58] hover:text-ink hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.74),0_8px_22px_rgba(7,19,31,0.07)]"
-            >
-              <span className="relative z-10">{link.label}</span>
-              <span
-                aria-hidden
-                className="absolute inset-x-3 bottom-1 h-px origin-center scale-x-0 rounded-full bg-ink/[0.42] transition-transform duration-300 group-hover:scale-x-100"
-              />
-            </button>
-          ))}
+        <div className="hidden flex-1 justify-center lg:flex">
+          <div className="flex items-center gap-0.5 rounded-full border border-ink/[0.08] bg-[#f5f7ef]/[0.74] p-1 shadow-inner shadow-white/[0.60]">
+            {navLinks.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={`rounded-full px-3.5 py-2 text-sm font-semibold transition ${
+                    active
+                      ? "bg-surface text-deep shadow-[0_8px_22px_rgba(6,24,23,0.10)]"
+                      : "text-muted hover:bg-surface/[0.72] hover:text-ink"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="hidden min-w-[220px] justify-end lg:flex">
+          <Link
+            href="/contact"
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-deep px-5 text-sm font-bold text-white shadow-[0_14px_34px_rgba(6,24,23,0.14)] transition hover:-translate-y-0.5 hover:bg-primary hover:text-ink"
+          >
+            Start a Project
+            <span className="ml-2" aria-hidden>→</span>
+          </Link>
         </div>
 
         <button
-          onClick={() => handleNavClick("#contact")}
-          className="hidden rounded-lg bg-ink px-4 py-2.5 text-sm font-medium text-[#f7f4ec] shadow-[0_10px_24px_rgba(7,19,31,0.16)] transition hover:bg-deep lg:inline-flex"
-        >
-          Start a Project
-        </button>
-
-        <button
           onClick={() => setMobileOpen((open) => !open)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink/[0.14] text-ink lg:hidden"
+          className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/[0.10] bg-[#f5f7ef] text-ink shadow-[0_10px_28px_rgba(6,24,23,0.08)] transition hover:bg-surface lg:hidden"
           aria-label="Toggle navigation"
           aria-expanded={mobileOpen}
+          aria-controls="mobile-navigation"
         >
           <span className="relative h-4 w-5">
             <span
@@ -77,24 +75,44 @@ export default function Navbar() {
         </button>
       </nav>
 
-      <div className={`grid border-t border-ink/[0.10] bg-[#f7f4ec]/[0.98] shadow-[0_18px_34px_rgba(7,19,31,0.08)] transition-[grid-template-rows] duration-300 lg:hidden ${mobileOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+      <div
+        id="mobile-navigation"
+        aria-hidden={!mobileOpen}
+        className={`grid border-t border-ink/[0.08] bg-surface/[0.96] shadow-[0_18px_60px_rgba(6,24,23,0.08)] backdrop-blur-2xl transition-[grid-template-rows] duration-300 lg:hidden ${
+          mobileOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
         <div className="overflow-hidden">
-          <div className="space-y-1 px-4 py-4">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleNavClick(link.href)}
-                className="block w-full rounded-lg px-3 py-3 text-left text-base font-semibold text-ink/[0.86] hover:bg-ink/[0.06] hover:text-ink"
-              >
-                {link.label}
-              </button>
-            ))}
-            <button
-              onClick={() => handleNavClick("#contact")}
-              className="mt-3 block w-full rounded-lg bg-ink px-3 py-3 text-left text-base font-medium text-[#f7f4ec]"
+          <div className="mx-auto max-w-[1500px] px-4 py-4 sm:px-6">
+            <div className="grid gap-2 sm:grid-cols-2">
+              {navLinks.map((link) => {
+                const active = pathname === link.href;
+                return (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    tabIndex={mobileOpen ? 0 : -1}
+                    className={`rounded-2xl border px-4 py-3 text-base font-semibold transition ${
+                      active
+                        ? "border-deep bg-deep text-white"
+                        : "border-ink/[0.08] bg-[#f5f7ef] text-ink/[0.76] hover:border-accent/[0.24] hover:bg-[#eaf2de] hover:text-ink"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
+            </div>
+            <Link
+              href="/contact"
+              onClick={() => setMobileOpen(false)}
+              tabIndex={mobileOpen ? 0 : -1}
+              className="mt-3 flex min-h-12 items-center justify-center rounded-2xl bg-deep px-4 text-base font-bold text-white transition hover:bg-primary hover:text-ink"
             >
               Start a Project
-            </button>
+              <span className="ml-2" aria-hidden>→</span>
+            </Link>
           </div>
         </div>
       </div>

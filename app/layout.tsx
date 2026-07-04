@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 
-const figtree = Figtree({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-figtree",
+  variable: "--font-geist",
   display: "swap",
 });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={figtree.variable}>
+    <html lang="en" className={geist.variable}>
       <body>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
