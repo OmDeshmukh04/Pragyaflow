@@ -3,7 +3,7 @@ const projectTypes = ["SaaS", "Web App", "Mobile App", "Reconciliation", "Report
 export default function ContactSection() {
   return (
     <section id="contact" className="bg-ink px-4 py-16 text-[#f7f4ec] sm:px-6 sm:py-20 lg:px-10 lg:py-28">
-      <div className="mx-auto grid w-full max-w-[1440px] overflow-hidden rounded-lg border border-white/[0.12] lg:grid-cols-[1fr_0.82fr]">
+      <div className="mx-auto grid w-full max-w-[1680px] overflow-hidden rounded-lg border border-white/[0.12] lg:grid-cols-[1fr_0.82fr]">
         <div className="relative min-h-[420px] p-6 sm:p-10 lg:p-14">
           <div className="absolute inset-0 tech-grid opacity-[0.2]" />
           <div className="relative z-10 flex h-full flex-col justify-between">

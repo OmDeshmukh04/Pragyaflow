@@ -1,36 +1,42 @@
 import Image from "next/image";
-import { siteConfig } from "@/lib/constants";
 
 type PragyaFlowLogoProps = {
-  tone?: "light" | "dark";
-  showWordmark?: boolean;
   className?: string;
+  /** Rendered logo height in pixels. Width follows the cropped logo ratio. */
+  height?: number;
+  plate?: boolean;
+  priority?: boolean;
 };
 
-export default function PragyaFlowLogo({
-  tone = "light",
-  showWordmark = true,
-  className = "",
-}: PragyaFlowLogoProps) {
-  const textClass = tone === "light" ? "text-[#f7f4ec]" : "text-ink";
+const LOGO_WIDTH = 1828;
+const LOGO_HEIGHT = 443;
+const ASPECT = LOGO_WIDTH / LOGO_HEIGHT;
 
-  return (
-    <span className={`inline-flex items-center gap-3 ${className}`}>
-      <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg bg-[#f7f4ec] shadow-sm">
-        <Image
-          src="/images/pragyaflow-logo.png"
-          alt={`${siteConfig.name} logo`}
-          width={251}
-          height={212}
-          className="h-full w-full object-contain"
-          priority
-        />
-      </span>
-      {showWordmark ? (
-        <span className={`text-xl font-medium tracking-normal ${textClass}`}>
-          {siteConfig.name}
-        </span>
-      ) : null}
-    </span>
+export default function PragyaFlowLogo({
+  className = "",
+  height = 38,
+  plate = false,
+  priority = false,
+}: PragyaFlowLogoProps) {
+  const logo = (
+    <Image
+      src="/images/pragyaflow-logo-transparent.png"
+      alt="PragyaFlow"
+      width={Math.round(height * ASPECT)}
+      height={height}
+      priority={priority}
+      className="block h-auto w-auto shrink-0"
+      style={{ height }}
+    />
   );
+
+  if (plate) {
+    return (
+      <span className={`inline-flex items-center rounded-lg bg-[#f7f4ec] px-2.5 py-1.5 shadow-sm ${className}`}>
+        {logo}
+      </span>
+    );
+  }
+
+  return <span className={`inline-flex items-center ${className}`}>{logo}</span>;
 }

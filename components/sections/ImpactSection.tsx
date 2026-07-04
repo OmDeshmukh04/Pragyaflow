@@ -41,7 +41,7 @@ function ProofGraphic({ index }: { index: number }) {
 export default function ImpactSection() {
   return (
     <section id="proof" className="bg-[#f7f4ec] py-16 sm:py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-10 2xl:px-16">
         <div className="mb-10 grid gap-5 lg:grid-cols-[0.8fr_1fr] lg:items-end">
           <div>
             <div className="eyebrow text-accent">Delivered Work</div>

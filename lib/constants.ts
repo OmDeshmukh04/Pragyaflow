@@ -8,7 +8,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Solutions", href: "#capabilities" },
-  { label: "Approach", href: "#systems" },
+  { label: "Products", href: "#products" },
   { label: "Delivered Work", href: "#proof" },
   { label: "Contact", href: "#contact" },
 ];
@@ -35,7 +35,7 @@ export const footerGroups = [
   {
     title: "Company",
     links: [
-      { label: "Approach", href: "#systems" },
+      { label: "Products", href: "#products" },
       { label: "Delivered Work", href: "#proof" },
       { label: "Start a Project", href: "#contact" },
     ],
@@ -71,6 +71,30 @@ export const systems = [
   "Product interface",
   "Data automation",
   "Launch and iteration",
+];
+
+export const products = [
+  {
+    name: "VaaniCare",
+    label: "AI Front Desk",
+    status: "Private beta",
+    description:
+      "A multilingual voice receptionist for dental clinics that answers clinic-approved questions, captures appointment intent, and routes urgent cases to staff.",
+    image: "/images/vaanicare-ai-receptionist.png",
+    demoUrl: process.env.NEXT_PUBLIC_VAANICARE_DEMO_URL || "#contact",
+    repositoryUrl: "https://github.com/OmDeshmukh04/VaaniCare",
+    tags: ["Voice AI", "Healthcare", "Booking", "Human handoff"],
+    metrics: [
+      { value: "3", label: "Languages" },
+      { value: "24/7", label: "Front desk" },
+      { value: "Safe", label: "Clinic-approved answers" },
+    ],
+    workflow: [
+      "Patient asks in English, Hindi, or Marathi",
+      "AI qualifies treatment intent and urgency",
+      "Clinic receives a clean booking or handoff request",
+    ],
+  },
 ];
 
 export const proof = [

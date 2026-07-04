@@ -25,10 +25,10 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-ink/[0.10] bg-[#f7f4ec]">
-      <div className="mx-auto w-full max-w-[1440px] px-4 py-12 sm:px-6 lg:px-10 lg:py-16">
+      <div className="mx-auto w-full max-w-[1680px] px-4 py-12 sm:px-6 lg:px-10 lg:py-16 2xl:px-16">
         <div className="grid gap-10 lg:grid-cols-[1.35fr_0.75fr_0.75fr_0.95fr]">
           <div>
-            <PragyaFlowLogo tone="dark" />
+            <PragyaFlowLogo height={42} />
             <p className="mt-5 max-w-md text-sm leading-7 text-muted">
               {siteConfig.description}
             </p>

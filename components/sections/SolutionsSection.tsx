@@ -62,7 +62,7 @@ function TileVisual({ index }: { index: number }) {
 export default function SolutionsSection() {
   return (
     <section id="capabilities" className="bg-bg py-16 sm:py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10">
+      <div className="mx-auto w-full max-w-[1680px] px-4 sm:px-6 lg:px-10 2xl:px-16">
         <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <div className="eyebrow text-accent">Capabilities</div>
