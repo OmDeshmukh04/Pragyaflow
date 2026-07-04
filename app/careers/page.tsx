@@ -20,8 +20,7 @@ export default function CareersPage() {
       <section className="brand-wash relative overflow-hidden px-4 pb-20 pt-32 sm:px-6 lg:px-10 lg:pb-28 lg:pt-40">
         <div className="relative mx-auto max-w-[1500px]">
           <div className="max-w-6xl">
-            <div className="eyebrow text-accent">Careers</div>
-            <h1 className="mt-5 text-6xl font-bold leading-[0.94] tracking-tight text-ink sm:text-7xl lg:text-8xl">
+            <h1 className="text-6xl font-bold leading-[0.94] tracking-tight text-ink sm:text-7xl lg:text-8xl">
               We are building a small team for serious software work.
             </h1>
           </div>

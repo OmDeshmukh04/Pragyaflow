@@ -13,8 +13,7 @@ export default function ContactPage() {
     <PageLayout>
       <section className="brand-wash px-4 pb-10 pt-32 sm:px-6 lg:px-10 lg:pt-40">
         <div className="mx-auto w-full max-w-[1500px]">
-          <div className="eyebrow text-accent">Contact</div>
-          <h1 className="mt-5 text-6xl font-bold leading-[0.94] tracking-tight text-ink sm:text-7xl lg:text-8xl">
+          <h1 className="text-6xl font-bold leading-[0.94] tracking-tight text-ink sm:text-7xl lg:text-8xl">
             Tell us what needs to work better.
           </h1>
         </div>

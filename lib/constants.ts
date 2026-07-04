@@ -16,8 +16,8 @@ export const navLinks = [
 ];
 
 export const contactInfo = {
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
+  phone: "+91 89565 06020",
+  phoneHref: "tel:+918956506020",
   email: "admin@pragyaflow.com",
   emailHref: "mailto:admin@pragyaflow.com",
   linkedin: "https://www.linkedin.com/company/pargyaflow/",

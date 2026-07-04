@@ -22,22 +22,22 @@ const homeMetrics = [
 export default function Home() {
   return (
     <PageLayout>
-      <section className="brand-wash relative min-h-screen overflow-hidden px-4 pb-20 pt-32 sm:px-6 lg:px-10 lg:pt-36">
-        <div className="relative z-10 mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-[1500px] flex-col justify-center">
+      <section className="brand-wash relative overflow-hidden px-4 pb-20 sm:px-6 lg:px-10">
+        <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[1500px] flex-col justify-center pb-10 pt-24 lg:pt-28">
           <div className="grid gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:items-center">
             <div className="max-w-6xl">
               <div className="inline-flex rounded-full border border-ink/[0.10] bg-surface/[0.72] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-deep backdrop-blur">
                 {siteConfig.tagline}
               </div>
-              <h1 className="mt-8 text-5xl font-bold leading-[0.96] tracking-tight text-ink sm:text-6xl lg:text-7xl xl:text-[82px]">
+              <h1 className="mt-6 text-5xl font-bold leading-[0.96] tracking-tight text-ink sm:text-6xl lg:text-7xl">
                 Software built around the way your business actually works.
               </h1>
-              <p className="mt-8 max-w-3xl text-lg leading-8 text-muted sm:text-xl">
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-muted sm:text-xl">
                 PragyaFlow designs and develops custom SaaS platforms, web apps,
                 mobile apps, reconciliation automation, and financial reporting
                 systems for teams that need reliable software, not another template.
               </p>
-              <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/contact" className="btn-primary">
                   Start a Project
                   <span aria-hidden>→</span>
@@ -48,11 +48,11 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="dark-panel rounded-[2rem] border border-white/[0.10] p-6 text-white shadow-[0_32px_120px_rgba(6,24,23,0.24)] sm:p-8">
-              <div className="flex items-center justify-between gap-6 border-b border-white/[0.12] pb-6">
+            <div className="dark-panel rounded-[2rem] border border-white/[0.10] p-6 text-white shadow-[0_32px_120px_rgba(6,24,23,0.24)] sm:p-7">
+              <div className="flex items-center justify-between gap-6 border-b border-white/[0.12] pb-5">
                 <div>
                   <div className="eyebrow text-primary">Operating Model</div>
-                  <p className="mt-3 text-2xl font-semibold leading-7 tracking-tight">
+                  <p className="mt-2 text-2xl font-semibold leading-7 tracking-tight">
                     Scope, design, build, automate, launch.
                   </p>
                 </div>
@@ -62,7 +62,7 @@ export default function Home() {
               </div>
               <div className="divide-y divide-white/[0.10]">
                 {homeMetrics.map((item) => (
-                  <div key={item.label} className="flex items-center justify-between gap-6 py-6">
+                  <div key={item.label} className="flex items-center justify-between gap-6 py-4">
                     <span className="text-sm font-semibold text-primary">{item.value}</span>
                     <span className="text-right text-lg font-semibold text-white">{item.label}</span>
                   </div>
@@ -74,20 +74,20 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
 
-          <div className="mt-16 grid gap-4 lg:grid-cols-4">
-            {capabilities.map((item) => (
-              <Link
-                href="/services"
-                key={item.title}
-                className="surface-panel rounded-[1.75rem] border border-white/[0.72] p-6 shadow-[0_24px_80px_rgba(6,24,23,0.055)] backdrop-blur transition hover:-translate-y-1 hover:border-primary/[0.45]"
-              >
-                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{item.kicker}</div>
-                <h2 className="mt-10 text-2xl font-semibold tracking-tight text-ink">{item.title}</h2>
-                <p className="mt-4 text-sm leading-6 text-muted">{item.description}</p>
-              </Link>
-            ))}
-          </div>
+        <div className="relative z-10 mx-auto grid w-full max-w-[1500px] gap-4 lg:grid-cols-4">
+          {capabilities.map((item) => (
+            <Link
+              href="/services"
+              key={item.title}
+              className="surface-panel rounded-[1.75rem] border border-white/[0.72] p-6 shadow-[0_24px_80px_rgba(6,24,23,0.055)] backdrop-blur transition hover:-translate-y-1 hover:border-primary/[0.45]"
+            >
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{item.kicker}</div>
+              <h2 className="mt-10 text-2xl font-semibold tracking-tight text-ink">{item.title}</h2>
+              <p className="mt-4 text-sm leading-6 text-muted">{item.description}</p>
+            </Link>
+          ))}
         </div>
       </section>
 

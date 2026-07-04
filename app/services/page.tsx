@@ -14,8 +14,7 @@ export default function ServicesPage() {
       <section className="brand-wash relative overflow-hidden px-4 pb-20 pt-32 sm:px-6 lg:px-10 lg:pb-28 lg:pt-40">
         <div className="relative mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[1fr_0.64fr] lg:items-end">
           <div>
-            <div className="eyebrow text-accent">Services</div>
-            <h1 className="mt-5 max-w-5xl text-6xl font-bold leading-[0.94] tracking-tight text-ink sm:text-7xl lg:text-8xl">
+            <h1 className="max-w-5xl text-6xl font-bold leading-[0.94] tracking-tight text-ink sm:text-7xl lg:text-8xl">
               Build the exact software your business needs next.
             </h1>
           </div>

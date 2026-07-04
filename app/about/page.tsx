@@ -23,8 +23,7 @@ export default function AboutPage() {
       <section className="brand-wash px-4 pb-20 pt-32 sm:px-6 lg:px-10 lg:pb-28 lg:pt-40">
         <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.92fr_0.8fr] lg:items-center">
           <div>
-            <div className="eyebrow text-accent">About Us</div>
-            <h1 className="mt-5 text-6xl font-bold leading-[0.94] tracking-tight text-ink sm:text-7xl lg:text-8xl">
+            <h1 className="text-6xl font-bold leading-[0.94] tracking-tight text-ink sm:text-7xl lg:text-8xl">
               A software studio for practical, high-trust business systems.
             </h1>
           </div>
