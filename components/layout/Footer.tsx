@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PragyaFlowLogo from "@/components/brand/PragyaFlowLogo";
 import { contactInfo, footerGroups, siteConfig } from "@/lib/constants";
 
@@ -24,39 +25,25 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-ink/[0.10] bg-[#f7f4ec]">
-      <div className="mx-auto w-full max-w-[1680px] px-4 py-12 sm:px-6 lg:px-10 lg:py-16 2xl:px-16">
-        <div className="grid gap-10 lg:grid-cols-[1.35fr_0.75fr_0.75fr_0.95fr]">
-          <div>
-            <PragyaFlowLogo height={42} />
-            <p className="mt-5 max-w-md text-sm leading-7 text-muted">
+    <footer className="border-t border-ink/[0.08] bg-surface">
+      <div className="mx-auto w-full max-w-[1500px] px-4 py-12 sm:px-6 lg:px-10 lg:py-16">
+        <div className="grid gap-10 pb-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.75fr_0.75fr_0.85fr]">
+          <div className="sm:col-span-2 lg:col-span-1">
+            <PragyaFlowLogo height={40} />
+            <p className="mt-6 max-w-sm text-base leading-7 text-muted">
               {siteConfig.description}
             </p>
-            <div className="mt-6 flex gap-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  aria-label={link.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink/[0.12] text-deep transition hover:border-accent hover:bg-white hover:text-accent"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
           </div>
 
           {footerGroups.map((group) => (
             <div key={group.title}>
-              <h3 className="text-sm font-medium text-ink">{group.title}</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">{group.title}</h3>
               <ul className="mt-4 space-y-3">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-sm text-muted transition hover:text-accent">
+                    <Link href={link.href} className="text-sm font-medium text-muted transition hover:text-ink">
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -64,24 +51,43 @@ export default function Footer() {
           ))}
 
           <div>
-            <h3 className="text-sm font-medium text-ink">Contact</h3>
-            <div className="mt-4 space-y-3 text-sm text-muted">
-              <a href={contactInfo.phoneHref} className="block transition hover:text-accent">
-                {contactInfo.phone}
-              </a>
-              <a href={contactInfo.emailHref} className="block transition hover:text-accent">
-                {contactInfo.email}
-              </a>
-              <a href="#contact" className="mt-5 inline-flex rounded-lg bg-ink px-4 py-2.5 text-sm font-medium text-[#f7f4ec] transition hover:bg-deep">
-                Start a Project
-              </a>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Contact</h3>
+            <div className="mt-4 space-y-4 text-sm">
+              <div>
+                <div className="text-muted">Email</div>
+                <a href={contactInfo.emailHref} className="mt-1 block break-words font-semibold text-ink transition hover:text-accent">
+                  {contactInfo.email}
+                </a>
+              </div>
+              <div>
+                <div className="text-muted">Phone</div>
+                <a href={contactInfo.phoneHref} className="mt-1 block font-semibold text-ink transition hover:text-accent">
+                  {contactInfo.phone}
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-ink/[0.10] pt-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
-          <span>{new Date().getFullYear()} {siteConfig.name}. All rights reserved.</span>
-          <span>Custom SaaS, apps, reconciliation, and report automation.</span>
+        <div className="flex flex-col gap-4 border-t border-ink/[0.10] pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-muted">
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                aria-label={link.label}
+                className="inline-flex items-center gap-2 rounded-full border border-ink/[0.10] bg-[#f5f7ef] px-3.5 py-2 text-sm font-semibold text-deep transition hover:border-accent/[0.35] hover:bg-[#eaf2de] hover:text-accent"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.icon}
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

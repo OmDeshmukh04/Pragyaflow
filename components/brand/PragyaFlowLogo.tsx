@@ -18,21 +18,24 @@ export default function PragyaFlowLogo({
   plate = false,
   priority = false,
 }: PragyaFlowLogoProps) {
+  const renderedWidth = Math.round(height * ASPECT);
+
   const logo = (
     <Image
       src="/images/pragyaflow-logo-transparent.png"
       alt="PragyaFlow"
-      width={Math.round(height * ASPECT)}
-      height={height}
+      width={LOGO_WIDTH}
+      height={LOGO_HEIGHT}
       priority={priority}
-      className="block h-auto w-auto shrink-0"
-      style={{ height }}
+      sizes={`${renderedWidth}px`}
+      className="block shrink-0 select-none object-contain"
+      style={{ width: renderedWidth, height }}
     />
   );
 
   if (plate) {
     return (
-      <span className={`inline-flex items-center rounded-lg bg-[#f7f4ec] px-2.5 py-1.5 shadow-sm ${className}`}>
+      <span className={`inline-flex items-center rounded-2xl bg-surface px-3 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.18)] ${className}`}>
         {logo}
       </span>
     );
